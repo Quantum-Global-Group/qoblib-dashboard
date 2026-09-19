@@ -1,6 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AppShell } from './components/layout/AppShell'
-import { DecathlonPage } from './pages/DecathlonPage'
 import { LabPage } from './pages/LabPage'
 import { LearnPage } from './pages/LearnPage'
 import { OverviewPage } from './pages/OverviewPage'
@@ -19,10 +18,11 @@ export default function App() {
         <Route path="/present" element={<PresentPage />} />
         <Route element={<DashboardShell />}>
           <Route path="/" element={<OverviewPage />} />
-          <Route path="/decathlon" element={<DecathlonPage />} />
+          <Route path="/decathlon" element={<Navigate to="/portfolio" replace />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/lab" element={<LabPage />} />
-          <Route path="/workforce" element={<WorkforcePage />} />
+          <Route path="/guide" element={<WorkforcePage />} />
+          <Route path="/workforce" element={<Navigate to="/guide" replace />} />
           <Route path="/learn" element={<LearnPage />} />
         </Route>
       </Routes>

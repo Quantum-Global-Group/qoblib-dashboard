@@ -1,13 +1,12 @@
 import { NavLink } from 'react-router-dom'
 
 const links: { to: string; label: string; highlight?: boolean }[] = [
-  { to: '/', label: 'Overview' },
-  { to: '/workforce', label: 'Workforce Program', highlight: true },
-  { to: '/decathlon', label: '10 Problems' },
-  { to: '/portfolio', label: 'Portfolio Deep Dive' },
-  { to: '/lab', label: 'Quantum Lab', highlight: true },
-  { to: '/learn', label: 'Beginner Guide' },
-  { to: '/present', label: 'Presentation', highlight: true },
+  { to: '/', label: 'Home' },
+  { to: '/lab', label: 'Run', highlight: true },
+  { to: '/portfolio', label: 'Portfolio' },
+  { to: '/learn', label: 'Learn' },
+  { to: '/guide', label: 'Guide' },
+  { to: '/present', label: 'Present', highlight: true },
 ]
 
 export function Sidebar() {
@@ -17,7 +16,7 @@ export function Sidebar() {
         <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">QOBLIB</p>
         <h1 className="mt-1 text-lg font-semibold leading-snug text-white">Intractable Decathlon</h1>
         <p className="mt-2 text-xs leading-relaxed text-slate-400">Interactive dashboard for arXiv:2504.03832</p>
-        <p className="mt-2 text-[10px] leading-relaxed text-emerald-500/80">Quantum Global Group workforce lab</p>
+        <p className="mt-2 text-[10px] leading-relaxed text-emerald-500/80">Quantum Global Group · QOBLIB Lab</p>
       </div>
       <nav className="flex flex-col gap-1">
         {links.map((link) => (

@@ -3,64 +3,55 @@ import { QggTerminal } from '../components/ui/QggTerminal'
 import { PAPER } from '../data/qoblibData'
 
 const QUICK = [
-  { label: 'RUN', sub: 'Real QPUs', to: '/lab' },
-  { label: 'BUILD', sub: 'Open Projects', to: '/decathlon' },
-  { label: 'LEARN', sub: 'Resources', to: '/learn' },
-  { label: 'CONNECT', sub: 'Workforce', to: '/workforce' },
+  { label: 'RUN', sub: 'Connect IBM and solve', to: '/lab' },
+  { label: 'PORTFOLIO', sub: 'Official #06 numbers', to: '/portfolio' },
+  { label: 'LEARN', sub: 'Plain-language brief', to: '/learn' },
+  { label: 'GUIDE', sub: 'How to use this lab', to: '/guide' },
 ] as const
 
 const GRID_SECTIONS = [
   {
     num: '01',
-    title: 'QUANTUM PLAYGROUND',
+    title: 'RUN',
     dark: true,
     to: '/lab',
-    body: 'Run on real QPUs in minutes. Connect IBM token + CRN, scale qubits, benchmark against QOBLIB portfolio QUBOs.',
-    cta: 'GO TO PLAYGROUND ↗',
+    body: 'Connect an IBM token, run a small quantum job, then solve an official QOBLIB portfolio QUBO.',
+    cta: 'OPEN RUN ↗',
     terminal: true,
   },
   {
     num: '02',
-    title: 'FEATURED PROJECTS',
-    dark: false,
-    to: '/decathlon',
-    body: 'QOBLIB Intractable Decathlon — 10 optimization problem classes with published baselines.',
-    items: ['Portfolio Optimization [FIN]', 'Network Design [QUBO]', 'Vehicle Routing [LOG]', 'Steiner Tree [VLSI]'],
-    cta: 'VIEW PROJECTS ↗',
-  },
-  {
-    num: '03',
-    title: 'WORKFORCE LAB',
-    dark: false,
-    to: '/workforce',
-    body: 'Teaching map and one-page handout. The Lab is where you run experiments — this page explains the path.',
-    items: ['Open Lab', 'Cohort outline', 'Handout PDF'],
-    cta: 'OPEN WORKFORCE MAP ↗',
-  },
-  {
-    num: '04',
-    title: 'PROCESS',
-    dark: false,
-    to: '/workforce',
-    body: 'Define → fit check → pilot → benchmark → report → enable team.',
-    items: ['01 Define outcome', '02 Fit check', '03 Pilot design', '04 Build & benchmark', '05 Report', '06 Enable'],
-    cta: 'SEE THE PLAYBOOK ↗',
-  },
-  {
-    num: '05',
-    title: 'QOBLIB BENCHMARK',
+    title: 'PORTFOLIO',
     dark: false,
     to: '/portfolio',
     body: PAPER.title,
     items: ['Official manifest families (3–400 assets)', 'Current BKV + historical Table 6', 'Checker-first verification'],
-    cta: 'PORTFOLIO DEEP DIVE ↗',
+    cta: 'OPEN PORTFOLIO ↗',
   },
   {
-    num: '06',
-    title: 'START PRESENTING',
+    num: '03',
+    title: 'LEARN',
+    dark: false,
+    to: '/learn',
+    body: 'Plain-language brief of the QOBLIB paper and the portfolio problem — for people who are not solver experts.',
+    items: ['Paper story', 'Beginner terms', 'What λ means'],
+    cta: 'OPEN LEARN ↗',
+  },
+  {
+    num: '04',
+    title: 'GUIDE',
+    dark: false,
+    to: '/guide',
+    body: 'How to walk someone through the lab: teaching path, cohort outline, and one-page handout.',
+    items: ['Teaching path', 'Cohort outline', 'Handout PDF'],
+    cta: 'OPEN GUIDE ↗',
+  },
+  {
+    num: '05',
+    title: 'PRESENT',
     dark: false,
     to: '/present',
-    body: 'Fullscreen deck with IBM × QGG co-branding and speaker notes for partner demos.',
+    body: 'Fullscreen slides with speaker notes for a partner or classroom demo.',
     cta: 'OPEN PRESENT ↗',
   },
 ] as const
@@ -76,9 +67,8 @@ export function OverviewPage() {
               Building quantum systems for the post-classical era.
             </h1>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-qgg-muted lg:text-base">
-              QOBLIB workforce lab by Quantum Global Group — interactive benchmark dashboard for portfolio
-              optimization (#06). Students connect IBM Quantum, run pilots, and verify results against official
-              QOBLIB submissions the same way industry teams do.
+              QOBLIB lab by Quantum Global Group — official portfolio problem #06. Connect IBM Quantum,
+              solve a file, and compare against published QOBLIB results.
             </p>
             <div className="mt-8 flex flex-wrap gap-6">
               {QUICK.map(({ label, sub, to }) => (

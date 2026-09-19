@@ -46,9 +46,9 @@ export function PortfolioPage() {
   return (
     <div>
       <PageHeader
-        num="05"
-        title="QOBLIB Benchmark — Portfolio #06"
-        subtitle="Multi-period portfolio optimization with transaction costs, short selling, and capital constraints. This page is an independent educational interface — QOBLIB is the upstream library."
+        num="02"
+        title="Portfolio"
+        subtitle="Official QOBLIB problem #06 — current numbers from the library, plus historical paper tables labeled as historical."
       />
 
       <div className="qgg-page-inner space-y-6">

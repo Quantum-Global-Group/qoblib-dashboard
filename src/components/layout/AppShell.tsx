@@ -2,12 +2,11 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { QggLogo } from '../QggLogo'
 
 const NAV = [
-  { num: '01', label: 'LAB', to: '/lab' },
-  { num: '02', label: 'PROJECTS', to: '/decathlon' },
-  { num: '03', label: 'PORTFOLIO', to: '/portfolio' },
-  { num: '04', label: 'LEARN', to: '/learn' },
-  { num: '05', label: 'WORKFORCE', to: '/workforce' },
-  { num: '06', label: 'PRESENT', to: '/present' },
+  { num: '01', label: 'RUN', to: '/lab' },
+  { num: '02', label: 'PORTFOLIO', to: '/portfolio' },
+  { num: '03', label: 'LEARN', to: '/learn' },
+  { num: '04', label: 'GUIDE', to: '/guide' },
+  { num: '05', label: 'PRESENT', to: '/present' },
 ] as const
 
 export function AppShell() {
@@ -60,7 +59,7 @@ export function AppShell() {
       <footer className="qgg-footer no-print border-t border-qgg bg-qgg-paper px-4 py-6 lg:px-6">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-end justify-between gap-4 text-xs">
           <div>
-            <p className="font-semibold uppercase tracking-wide">Quantum Global Group · QOBLIB Workforce Lab</p>
+            <p className="font-semibold uppercase tracking-wide">Quantum Global Group · QOBLIB Lab</p>
             <p className="mt-1 text-qgg-muted">Sources: IBM Quantum / Qiskit · ZIB-AOPT QOBLIB · arXiv:2504.03832</p>
           </div>
           <div className="flex flex-wrap gap-4 font-mono text-[10px] uppercase">

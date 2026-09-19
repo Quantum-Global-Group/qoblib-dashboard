@@ -68,12 +68,12 @@ export function WorkforcePage() {
     <>
       <WorkforceHandoutPrint />
       <PageHeader
-        num="05"
-        title="Workforce Lab"
-        subtitle="A reusable training lab for quantum optimization. Open the Lab to run experiments. Use this page for the teaching path, cohort outline, and one-page handout."
+        num="04"
+        title="Guide"
+        subtitle="How to use this lab. Run is where you do the work. This page is the teaching path, cohort outline, and one-page handout."
       >
         <Link to="/lab" className="qgg-btn qgg-btn-accent">
-          OPEN LAB ↗
+          OPEN RUN ↗
         </Link>
         <Link to="/present" className="qgg-btn">
           PRESENT
@@ -88,7 +88,7 @@ export function WorkforcePage() {
           <PartnerCoBrand />
           <p className="mt-6 text-sm leading-relaxed text-qgg-muted">
             Quantum Global Group built this lab so students and working teams can practice the same define →
-            fit check → pilot → benchmark → report workflow on official QOBLIB portfolio instances. The Lab is
+            fit check → pilot → benchmark → report workflow on official QOBLIB portfolio instances. Run is
             the workspace. This page is the map.
           </p>
         </QggPanel>

@@ -199,7 +199,7 @@ export const ENTERPRISE_VS_STUDENT = [
 ]
 
 export const HOW_TO_USE = [
-  'Open Lab from the top nav when you want to run something. This Workforce page is the map, not the workbench.',
+  'Open Run from the top nav when you want to work. This Guide page is the map, not the workbench.',
   'IBM Quantum and Qiskit are cited sources for the optional hardware/simulator path.',
   'QOBLIB portfolio #06 is the official benchmark problem. Verify with the official checker — a low score is not enough.',
   'Presentation mode has speaker notes for you. Hide them with N when people are watching.',

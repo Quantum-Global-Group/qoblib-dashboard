@@ -10,7 +10,7 @@ export type Slide = {
 export const SLIDES: Slide[] = [
   {
     id: 'intro',
-    title: 'QOBLIB Workforce Quantum Optimization Lab',
+    title: 'QOBLIB Lab',
     showPartners: true,
     bullets: [
       'Open benchmark dashboard — arXiv:2504.03832 “Intractable Decathlon”',

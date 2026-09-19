@@ -6,9 +6,9 @@ export function LearnPage() {
   return (
     <div>
       <PageHeader
-        num="05"
-        title="Learn Resources"
-        subtitle="Everything below is written in plain language. Use this page when presenting to people who are not optimization or quantum experts."
+        num="03"
+        title="Learn"
+        subtitle="Plain-language brief of the QOBLIB paper and the portfolio problem. Use this when the audience is not a solver expert."
       />
 
       <div className="qgg-page-inner space-y-6">

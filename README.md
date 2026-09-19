@@ -68,13 +68,12 @@ The **Quantum Lab** compares local QUBO runs against ingested ABS2 records and *
 
 | Route | Purpose |
 |-------|---------|
-| `/` | Overview and why QOBLIB exists |
-| `/decathlon` | All 10 problem classes + size chart |
-| `/portfolio` | Official families, current BKV, historical paper tables, checker |
-| `/workforce` | Workforce Lab map — playbook, cohort outline, sources, handout PDF |
-| `/lab` | IBM Quantum + QUBO solve + QOBLIB verification (local API) |
-| `/learn` | Beginner-friendly explanations |
-| `/present` | Fullscreen presentation mode |
+| `/` | Home |
+| `/lab` | Run — connect IBM, demo job, solve a portfolio file |
+| `/portfolio` | Official #06 families, current BKV, historical paper tables |
+| `/learn` | Plain-language brief |
+| `/guide` | How to use the lab, cohort outline, handout PDF |
+| `/present` | Fullscreen slides |
 
 ## Build and host (GitHub, not this machine)
 
@@ -112,13 +111,11 @@ Open http://localhost:5173/lab
 
 IBM credentials stay in session storage and hit the local API only — never GitHub Pages.
 
-## Workforce Lab
+## Guide
 
-The **`/workforce`** page maps [Quantum Global Group](https://www.quantumglobalgroup.io)'s six-step delivery process onto dashboard routes. IBM Quantum and Qiskit are cited as sources for the optional hardware/simulator path.
+The **`/guide`** page is the teaching map (playbook, cohort outline, handout). **`/lab`** is where you run work. IBM Quantum and Qiskit are cited as sources for the optional hardware/simulator path.
 
 **Demo path:** `/lab` → `/portfolio` → `/present`.
-
-See **`/workforce`** for the full 5-week cohort curriculum and enterprise-vs-student checklist.
 
 ### Student parameter lab
 

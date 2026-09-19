@@ -341,11 +341,11 @@ export function LabPage() {
     <div>
       <PageHeader
         num="01"
-        title="Quantum Lab"
-        subtitle="Connect IBM Quantum for a hardware warmup, then run official QOBLIB portfolio QUBOs at a050 scale (3,110–4,665 variables) with classical simulated annealing and compare against published ABS2/Gurobi results."
+        title="Run"
+        subtitle="Three steps: connect IBM Quantum, run a small demo job, then solve an official QOBLIB portfolio file and compare the result."
       >
-        <Link to="/workforce" className="qgg-btn">
-          CURRICULUM ↗
+        <Link to="/guide" className="qgg-btn">
+          GUIDE ↗
         </Link>
       </PageHeader>
 
@@ -390,7 +390,7 @@ export function LabPage() {
       />
 
       <div className="grid gap-6 xl:grid-cols-2">
-        <QggPanel num="1" title="IBM Quantum credentials">
+        <QggPanel num="1" title="Connect IBM">
           <p className="text-xs text-qgg-muted">
             Token + instance CRN from{' '}
             <a href="https://quantum.cloud.ibm.com/" target="_blank" rel="noreferrer" className="qgg-link">
@@ -446,7 +446,7 @@ export function LabPage() {
           </div>
         </QggPanel>
 
-        <QggPanel num="2" title="Run QAOA on IBM Quantum">
+        <QggPanel num="2" title="Run a small quantum job">
           <p className="text-xs text-qgg-muted">
             Ring MaxCut QAOA — increase <strong>qubits</strong> to see exponential search-space growth.
             Use <strong>simulator</strong> up to 20 qubits; on real hardware stay at ≤12 qubits.
@@ -526,7 +526,7 @@ export function LabPage() {
         </QggPanel>
       </div>
 
-      <QggPanel num="3" title="Solve official QOBLIB QUBO">
+      <QggPanel num="3" title="Solve a portfolio file">
         <p className="text-xs text-qgg-muted">
           Loads compressed <code className="font-mono">.qs.xz</code> UQO files when they are present locally.
           3/4/5-asset families exist in the official repository but are not bundled as solver files here.
@@ -684,7 +684,7 @@ export function LabPage() {
         </QggPanel>
       ) : null}
 
-      <QggPanel num="4" title="Verify against QOBLIB reference">
+      <QggPanel num="4" title="Compare your result">
         <p className="text-xs text-qgg-muted">
           Instance <code className="font-mono">po_a050_t15_s00</code> — historical paper Table 6 (Gurobi vs ABS2).
           Current official BKV is on /portfolio and is not this table.
