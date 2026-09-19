@@ -12,7 +12,7 @@ import {
 import { QggPanel } from './ui/QggPanel'
 import { usePortfolioInstance, usePortfolioManifest } from '../hooks/usePortfolioData'
 
-const COLORS = ['#0a0a0a', '#666666', '#e6fb04', '#333333', '#888888', '#444444', '#aaaaaa', '#222222']
+const COLORS = ['#c8f04a', '#2458ff', '#7b96ff', '#f2f0e9', '#8a877e', '#3d6b00', '#181818', '#5c594f']
 
 function CovarianceHeatmap({
   symbols,
@@ -95,7 +95,7 @@ export function PortfolioLiveCharts() {
         <label className="font-mono text-xs uppercase text-[#ccc]">
           Instance{' '}
           <select
-            className="ml-2 border-2 border-[#f2f2ec] bg-qgg-terminal px-3 py-2 text-sm text-[#f2f2ec]"
+            className="ml-2 border-2 border-qgg bg-qgg-terminal px-3 py-2 text-sm text-qgg-fg"
             value={selectedId ?? ''}
             onChange={(e) => setSelectedId(e.target.value || null)}
             disabled={manifestLoading}
@@ -121,14 +121,14 @@ export function PortfolioLiveCharts() {
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="day" tick={{ fill: '#888', fontSize: 11 }} />
                   <YAxis tick={{ fill: '#888', fontSize: 11 }} />
-                  <Tooltip contentStyle={{ background: '#0a0a0a', border: '1px solid #e6fb04', borderRadius: 0, color: '#f2f2ec' }} />
+                  <Tooltip contentStyle={{ background: '#181818', border: '1px solid rgba(242, 240, 233, 0.16)', borderRadius: 0, color: '#f2f0e9' }} />
                   <Legend wrapperStyle={{ fontSize: 11, color: '#ccc' }} />
                   {data.priceSeries.map((s, i) => (
                     <Line
                       key={s.symbol}
                       type="monotone"
                       dataKey={s.symbol}
-                      stroke={i === 0 ? '#e6fb04' : COLORS[i % COLORS.length]}
+                      stroke={i === 0 ? '#c8f04a' : COLORS[i % COLORS.length]}
                       dot={false}
                       strokeWidth={2}
                     />

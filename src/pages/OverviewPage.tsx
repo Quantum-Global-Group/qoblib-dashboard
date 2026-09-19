@@ -130,7 +130,7 @@ export function OverviewPage() {
           {GRID_SECTIONS.map((section) => (
             <article
               key={section.num}
-              className={`flex min-h-[280px] flex-col p-6 lg:p-8 ${section.dark ? 'bg-qgg-terminal text-[#f2f2ec]' : 'bg-qgg-paper'}`}
+              className={`flex min-h-[280px] flex-col p-6 lg:p-8 ${section.dark ? 'bg-qgg-terminal text-qgg-fg' : 'bg-qgg-paper'}`}
             >
               <p className="font-mono text-xs text-qgg-muted">
                 {section.num} / <span className={section.dark ? 'text-[#888]' : ''}>{section.title}</span>
@@ -161,7 +161,7 @@ export function OverviewPage() {
               ) : null}
               <Link
                 to={section.to}
-                className={`qgg-btn mt-6 w-fit ${section.dark ? 'qgg-btn-accent border-[#f2f2ec] text-qgg-fg' : 'qgg-btn-accent'}`}
+                className="qgg-btn qgg-btn-accent mt-6 w-fit"
               >
                 {section.cta}
               </Link>

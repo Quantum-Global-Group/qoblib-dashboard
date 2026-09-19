@@ -1,12 +1,12 @@
 export const QGG_CHART = {
   tooltip: {
-    background: '#f2f2ec',
-    border: '2px solid #0a0a0a',
+    background: '#181818',
+    border: '1px solid rgba(242, 240, 233, 0.16)',
     borderRadius: 0,
-    color: '#0a0a0a',
+    color: '#f2f0e9',
     fontSize: 11,
   },
-  grid: '#cccccc',
-  tick: '#4a4a4a',
-  line: ['#0a0a0a', '#666666', '#e6fb04', '#333333'],
+  grid: 'rgba(242, 240, 233, 0.16)',
+  tick: '#8a877e',
+  line: ['#c8f04a', '#2458ff', '#7b96ff', '#f2f0e9'],
 }

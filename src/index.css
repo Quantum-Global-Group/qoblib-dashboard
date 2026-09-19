@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-qgg-paper: #f2f2ec;
-  --color-qgg-fg: #0a0a0a;
-  --color-qgg-muted: #4a4a4a;
-  --color-qgg-accent: #e6fb04;
-  --color-qgg-border: #0a0a0a;
-  --color-qgg-terminal: #0a0a0a;
-  --font-display: "Archivo Black", "Arial Black", sans-serif;
-  --font-body: Inter, system-ui, sans-serif;
+  --color-qgg-paper: #0a0a0a;
+  --color-qgg-fg: #f2f0e9;
+  --color-qgg-muted: #8a877e;
+  --color-qgg-accent: #c8f04a;
+  --color-qgg-cobalt: #2458ff;
+  --color-qgg-border: rgba(242, 240, 233, 0.16);
+  --color-qgg-terminal: #181818;
+  --font-display: "Syne", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
@@ -18,17 +19,21 @@ body,
   height: 100%;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
   background: var(--color-qgg-paper);
   color: var(--color-qgg-fg);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 .qgg-display {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
 }
 
 .qgg-section-title {
@@ -47,6 +52,7 @@ body {
 
 .bg-qgg-accent {
   background-color: var(--color-qgg-accent);
+  color: #0a0a0a;
 }
 
 .text-qgg-muted {
@@ -72,8 +78,9 @@ body {
 }
 
 .qgg-nav-link-active {
-  background: var(--color-qgg-accent);
-  border-color: var(--color-qgg-border);
+  background: transparent;
+  color: var(--color-qgg-accent);
+  border-color: transparent;
 }
 
 .qgg-link {
@@ -83,7 +90,8 @@ body {
 }
 
 .qgg-link:hover {
-  background: var(--color-qgg-accent);
+  color: var(--color-qgg-accent);
+  background: transparent;
 }
 
 .qgg-btn {
@@ -111,22 +119,25 @@ body {
 
 .qgg-btn-accent {
   background: var(--color-qgg-accent);
+  color: #0a0a0a;
+  border-color: var(--color-qgg-accent);
 }
 
 .qgg-btn-accent:hover {
-  background: var(--color-qgg-fg);
-  color: var(--color-qgg-paper);
+  background: var(--color-qgg-cobalt);
+  border-color: var(--color-qgg-cobalt);
+  color: #f2f0e9;
 }
 
 .qgg-panel-dark {
   background: var(--color-qgg-terminal);
-  color: #f2f2ec;
+  color: var(--color-qgg-fg);
 }
 
 .qgg-panel-dark .qgg-section-title,
 .qgg-panel-dark h3,
 .qgg-panel-dark h4 {
-  color: #f2f2ec;
+  color: var(--color-qgg-fg);
 }
 
 .qgg-terminal {
@@ -253,7 +264,7 @@ body {
 }
 
 .qgg-table td {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--color-qgg-border);
   padding: 0.75rem 1rem 0.75rem 0;
   color: var(--color-qgg-fg);
 }
@@ -266,13 +277,13 @@ body {
 }
 
 .qgg-alert-error {
-  background: #fff;
-  border-color: #c00;
-  color: #900;
+  background: #181818;
+  border-color: #f87171;
+  color: #f87171;
 }
 
 .qgg-chart .recharts-cartesian-grid line {
-  stroke: #ccc;
+  stroke: rgba(242, 240, 233, 0.16);
 }
 
 /* Print handout — keep white */

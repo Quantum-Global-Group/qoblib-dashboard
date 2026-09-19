@@ -44,7 +44,7 @@ export function AppShell() {
               key={`m-${num}`}
               to={to}
               className={({ isActive }) =>
-                `shrink-0 border-r border-qgg px-3 py-2 font-mono text-[10px] uppercase ${isActive ? 'bg-qgg-accent' : ''}`
+                `shrink-0 border-r border-qgg px-3 py-2 font-mono text-[10px] uppercase ${isActive ? 'bg-qgg-accent text-black' : ''}`
               }
             >
               {num}
