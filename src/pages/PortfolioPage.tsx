@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   CartesianGrid,
   Legend,
@@ -15,14 +16,31 @@ import { QGG_CHART } from '../chartTheme'
 import {
   LAMBDA_BENCHMARK,
   OBJECTIVE_CONVERGENCE,
+  PAPER_TABLE6,
   PORTFOLIO_DATA_FORMAT,
-  PORTFOLIO_FEATURES,
-  PORTFOLIO_INSTANCES,
   PORTFOLIO_NAMING,
   PORTFOLIO_PARAMS,
   PORTFOLIO_REPO_LAYOUT,
   RUNTIME_BY_LAMBDA,
 } from '../data/qoblibData'
+import {
+  HIGHLIGHTED_CURRENT_BKV,
+  HISTORICAL_VS_CURRENT_NOTE,
+  LAMBDA_GRID,
+  OFFICIAL_BEST_KNOWN,
+  OFFICIAL_MODEL_PARAMS,
+  OFFICIAL_SUBMISSIONS,
+  PORTFOLIO_FAMILIES,
+  QOBLIB_OFFICIAL,
+} from '../data/qoblibPortfolio'
+
+const LINKS = [
+  { label: 'Portfolio #06', href: QOBLIB_OFFICIAL.portfolio },
+  { label: 'manifest.json', href: QOBLIB_OFFICIAL.manifestUrl },
+  { label: 'Solutions / BKV', href: QOBLIB_OFFICIAL.solutionsUrl },
+  { label: 'Checker', href: QOBLIB_OFFICIAL.checkerUrl },
+  { label: 'Models', href: QOBLIB_OFFICIAL.modelsUrl },
+]
 
 export function PortfolioPage() {
   return (
@@ -30,139 +48,278 @@ export function PortfolioPage() {
       <PageHeader
         num="05"
         title="QOBLIB Benchmark — Portfolio #06"
-        subtitle="Multi-period Markowitz portfolio selection with binary buy/hold decisions, transaction costs, short-selling fees, and capital constraints — built from real S&P 500 prices and covariances."
+        subtitle="Multi-period portfolio optimization with transaction costs, short selling, and capital constraints. This page is an independent educational interface — QOBLIB is the upstream library."
       />
 
       <div className="qgg-page-inner space-y-6">
-        <QggPanel title="Problem features (official README)">
-          <ul className="grid gap-2 md:grid-cols-2">
-            {PORTFOLIO_FEATURES.map((f) => (
-              <li key={f} className="text-sm text-qgg-muted">
-                • {f}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6 grid gap-4 lg:grid-cols-2">
-            <div className="border border-qgg bg-qgg-paper p-4 text-sm text-qgg-muted">
-              <p className="font-semibold text-qgg-fg">Objective (minimize)</p>
-              <p className="mt-2 leading-relaxed">
-                Per period: λ-weighted covariance risk minus expected profit, plus transaction costs δ, minus cash
-                interest ρ<sub>c</sub>, plus short-selling cost ρ<sub>s</sub>, plus final liquidation cost.
-              </p>
-              <p className="mt-3 font-semibold text-qgg-fg">Constraints (each day t)</p>
-              <p className="mt-1 font-mono text-xs">Σᵢ τᵢ xᵢₜ + Σc 2ᶜ y_cₜ = C</p>
-              <p className="text-xs">Capital limit — total units held plus cash encoding equals C</p>
-              <p className="mt-2 font-mono text-xs">Σᵢ xᵢₜ + Σb 2ᵇ s_bₜ = B</p>
-              <p className="text-xs">Position limit — at most B assets per day</p>
-            </div>
-            <div className="border border-qgg bg-qgg-accent/20 p-4 text-sm text-qgg-muted">
-              <p className="font-semibold text-qgg-fg">Instance naming</p>
-              <p className="mt-2 font-mono text-xs">Price data: {PORTFOLIO_NAMING.priceInstance}</p>
-              <p className="mt-1 font-mono text-xs">QUBO file: {PORTFOLIO_NAMING.quboProblem}</p>
-              <ul className="mt-3 space-y-2 text-xs">
-                {PORTFOLIO_NAMING.fields.map((row) => (
-                  <li key={row.code}>
-                    <span className="font-mono">{row.code}</span> — {row.meaning}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </QggPanel>
-
-        <section className="grid gap-0 border border-qgg md:grid-cols-3">
-          {Object.entries(PORTFOLIO_DATA_FORMAT).map(([k, v]) => (
-            <div key={k} className="border-b border-qgg bg-qgg-paper p-4 md:border-r">
-              <p className="font-mono text-xs uppercase text-qgg-muted">{k}</p>
-              <p className="mt-1 text-sm">{v}</p>
-            </div>
-          ))}
-        </section>
-
-        <QggPanel title="QOBLIB repository layout">
-          <div className="grid gap-2 sm:grid-cols-2">
-            {PORTFOLIO_REPO_LAYOUT.map((row) => (
-              <div key={row.dir} className="flex gap-2 text-sm">
-                <code className="shrink-0 font-mono">{row.dir}</code>
-                <span className="text-qgg-muted">{row.desc}</span>
-              </div>
+        <QggPanel title="Portfolio Optimization #06">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            Official current configuration is sourced from{' '}
+            <code className="font-mono text-xs">06-portfolio/instances/manifest.json</code>, which QOBLIB
+            calls the single source of truth for instance configuration. Snapshot commit{' '}
+            <code className="font-mono text-xs">{QOBLIB_OFFICIAL.sourceCommit.slice(0, 12)}</code> · synced{' '}
+            {QOBLIB_OFFICIAL.syncedAt.slice(0, 10)}.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm">
+            {LINKS.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="underline">
+                {link.label}
+              </a>
             ))}
           </div>
+          <p className="mt-4 text-xs text-qgg-muted">
+            Data category: {QOBLIB_OFFICIAL.category}. Historical paper tables are labeled separately below.
+          </p>
         </QggPanel>
 
-        <section className="grid gap-0 border border-qgg md:grid-cols-2 xl:grid-cols-4">
-          {Object.entries({
-            'Risk-free rate': PORTFOLIO_PARAMS.riskFreeRate.annual,
-            'Transaction cost': PORTFOLIO_PARAMS.transactionCost.daily,
-            'Short loan rate': PORTFOLIO_PARAMS.shortLoanRate.annual,
-            'Total capital': PORTFOLIO_PARAMS.cashTotal,
-          }).map(([k, v]) => (
-            <div key={k} className="border-b border-qgg bg-qgg-paper p-4 md:border-r">
-              <p className="font-mono text-xs uppercase text-qgg-muted">{k}</p>
-              <p className="qgg-stat-value mt-1">{v}</p>
-            </div>
-          ))}
-        </section>
+        <QggPanel title="What problem are we solving?">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            Allocate a fixed cash pool across a subset of S&P 500 names over several periods, paying
+            transaction, short-borrowing, and liquidation costs, while a risk weight λ trades return
+            against covariance. The purpose of the benchmark is comparison and evidence gathering, not
+            assuming a quantum advantage in advance.
+          </p>
+        </QggPanel>
 
-        <QggPanel title="What the optimizer decides">
-          <div className="grid gap-4 md:grid-cols-2">
-            <ul className="space-y-2 text-sm text-qgg-muted">
-              <li>
-                <strong>Hold or skip</strong> each stock each day (binary x<sub>it</sub>)
+        <QggPanel title="Start Small">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            QOBLIB now includes small portfolio instances that make it easier to inspect the full
+            optimization problem before scaling to research-size benchmarks. That is our teaching use of
+            them — the repository does not say they were created specifically for education.
+          </p>
+          <ol className="mt-4 grid gap-3 md:grid-cols-3">
+            {PORTFOLIO_FAMILIES.filter((f) => f.scale === 'learning').map((f) => (
+              <li key={f.family} className="border border-qgg bg-qgg-paper p-4">
+                <p className="font-mono text-xs text-qgg-muted">{f.family}</p>
+                <p className="mt-1 text-lg font-semibold">
+                  {f.assets} assets × {f.periods} periods
+                </p>
+                <p className="mt-2 text-sm text-qgg-muted">
+                  B = {f.budget} · {f.binaryVariables.toLocaleString()} binary variables
+                </p>
+                <p className="mt-2 text-xs text-qgg-muted">Newer repository family · not in the original paper table of 10/50/200/400-asset instances.</p>
               </li>
-              <li>
-                <strong>Long vs short</strong> positions (τ = +1 or −1)
-              </li>
-              <li>
-                <strong>Up to 3 units</strong> per asset via unary encoding
-              </li>
-              <li>
-                <strong>Cash allocation</strong> with risk-free interest on unused capital
-              </li>
-            </ul>
-            <ul className="space-y-2 text-sm text-qgg-muted">
-              <li>
-                <strong>Minimize</strong> risk (λ-weighted covariance) minus expected profit
-              </li>
-              <li>
-                <strong>Pay</strong> transaction fees when holdings change
-              </li>
-              <li>
-                <strong>Respect</strong> capital limit C and max positions B
-              </li>
-              <li>
-                <strong>Liquidate</strong> at final period with closing costs
-              </li>
-            </ul>
+            ))}
+          </ol>
+          <p className="mt-4 text-sm text-qgg-muted">
+            Suggested path: 3 assets → understand variables → 4–5 assets → risk and constraints → 10
+            assets → small benchmark experiments → 50+ → scaling.
+          </p>
+        </QggPanel>
+
+        <QggPanel title="How the model makes decisions">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            The official reference model is not one yes/no per stock per day. For each asset, unit copy{' '}
+            <code className="font-mono text-xs">m ∈ {'{1,2,3}'}</code>, direction τ ∈ {'{+1,−1}'}, and
+            period t there is a binary variable x. One unit is the number of shares worth{' '}
+            {OFFICIAL_MODEL_PARAMS.unit.toLocaleString()} cash at t = 0.
+          </p>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-qgg-muted">
+            <li>which assets are held</li>
+            <li>how many investment units are allocated</li>
+            <li>whether those units are long or short</li>
+            <li>how much capital remains unused</li>
+            <li>whether the portfolio respects the position budget</li>
+          </ol>
+          <details className="mt-4 border border-qgg p-4 text-sm">
+            <summary className="cursor-pointer font-semibold">Show the mathematical model</summary>
+            <p className="mt-3 text-qgg-muted">
+              Official problem README still writes a compact x<sub>it</sub> form. The checker documents
+              the generated model as x<sub>i,m,τ,t</sub> plus slack registers y (4 bits/period) and s (7
+              bits/period). Binary-variable count used on this page is (6 × assets + 11) × periods. That
+              is a decision-variable count, not a physical-qubit requirement.
+            </p>
+            <p className="mt-3 font-mono text-xs">Σ τ x + Σ 2ᶜ y_c = C &nbsp; and &nbsp; Σ x + Σ 2ᵇ s_b = B</p>
+          </details>
+        </QggPanel>
+
+        <QggPanel title="Objective and constraints">
+          <div className="grid gap-3 md:grid-cols-2 text-sm text-qgg-muted">
+            <p>Covariance risk (λ-weighted)</p>
+            <p>Expected return / profit</p>
+            <p>Transaction cost δ = {PORTFOLIO_PARAMS.delta}</p>
+            <p>Cash interest ν = {PORTFOLIO_PARAMS.nu}</p>
+            <p>Short-selling cost ρ = {PORTFOLIO_PARAMS.rho}</p>
+            <p>Final liquidation cost</p>
+            <p>Capital C = cash/unit = {PORTFOLIO_PARAMS.capitalC}</p>
+            <p>Position budget B from the official asset map</p>
           </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            <Stat label="Cash (official)" value={PORTFOLIO_PARAMS.cash} />
+            <Stat label="Unit (official)" value={PORTFOLIO_PARAMS.unit} />
+            <Stat label="δ / ν / ρ" value={`${PORTFOLIO_PARAMS.delta} / ${PORTFOLIO_PARAMS.nu} / ${PORTFOLIO_PARAMS.rho}`} />
+            <Stat label="ub / slack bits" value={`${PORTFOLIO_PARAMS.ub} / ${PORTFOLIO_PARAMS.capitalSlackBits}+${PORTFOLIO_PARAMS.positionSlackBits}`} />
+          </div>
+          <p className="mt-3 text-xs text-qgg-muted">
+            Derived teaching labels only: transaction {PORTFOLIO_PARAMS.transactionCost.derivedDailyPct}, cash
+            interest {PORTFOLIO_PARAMS.cashInterest.derivedDailyPct}, short cost{' '}
+            {PORTFOLIO_PARAMS.shortCost.derivedDailyPct}.
+          </p>
         </QggPanel>
 
-        <PortfolioLiveCharts />
-
-        <QggPanel title="Benchmark instances (Table 5)">
+        <QggPanel title="Official instance families">
           <p className="text-xs text-qgg-muted">
-            4 instances per row (1 original S&P data + 3 perturbed). Price ID: po_a{'{assets}'}_t{'{periods}'}_
-            {'{orig|sXX}'} · QUBO ID adds b{'{BBB}'} and l{'{λ}'}
+            Each family has orig + s00 + s01 + s02. Logical instances = bases × λ grid. Local price JSON
+            in this dashboard currently covers a010–a400 only.
           </p>
           <div className="mt-4 overflow-x-auto">
-            <table className="qgg-table min-w-[640px]">
+            <table className="qgg-table min-w-[720px]">
               <thead>
                 <tr>
-                  <th>Assets (n)</th>
-                  <th>Periods (m)</th>
-                  <th>Max positions (B)</th>
-                  <th>Binary variables</th>
-                  <th>Label</th>
+                  <th>Family</th>
+                  <th>Assets</th>
+                  <th>Periods</th>
+                  <th>B</th>
+                  <th>Binary vars</th>
+                  <th>Scale</th>
+                  <th>Local prices</th>
                 </tr>
               </thead>
               <tbody>
-                {PORTFOLIO_INSTANCES.map((row) => (
-                  <tr key={row.label}>
+                {PORTFOLIO_FAMILIES.map((row) => (
+                  <tr key={row.family}>
+                    <td className="font-mono text-xs">{row.family}</td>
                     <td>{row.assets}</td>
                     <td>{row.periods}</td>
-                    <td>{row.assetLimit}</td>
-                    <td className="font-mono">{row.variables.toLocaleString()}</td>
-                    <td className="font-mono text-xs">{row.label}</td>
+                    <td>{row.budget}</td>
+                    <td className="font-mono">{row.binaryVariables.toLocaleString()}</td>
+                    <td>{row.scale}</td>
+                    <td>{row.inOriginalPaperFamilies ? 'Downloaded' : 'Official instance available · local file not downloaded'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 font-mono text-xs text-qgg-muted">
+            Price: {PORTFOLIO_NAMING.priceInstance} · QUBO: {PORTFOLIO_NAMING.quboProblem}
+          </p>
+        </QggPanel>
+
+        <QggPanel title="Risk parameter λ">
+          <p className="text-sm text-qgg-muted">
+            Official λ grid from the manifest (do not treat other values as official):
+          </p>
+          <p className="mt-2 font-mono text-xs">{LAMBDA_GRID.join(' · ')}</p>
+        </QggPanel>
+
+        <QggPanel title="BQP → QUBO">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            <strong className="text-qgg-fg">QUBO</strong> is a problem formulation.{' '}
+            <strong className="text-qgg-fg">QAOA</strong> is a variational gate-based algorithm that may
+            search an optimization landscape. Quantum annealing is a different approach. Classical
+            solvers can also solve BQP/QUBO. QUBO is not a quantum algorithm, and QAOA does not
+            guarantee the optimum.
+          </p>
+        </QggPanel>
+
+        <QggPanel title="Current QOBLIB best-known results">
+          <p className="text-xs text-qgg-muted">
+            {QOBLIB_OFFICIAL.category} · {OFFICIAL_BEST_KNOWN.length} auto-generated rows from{' '}
+            solutions/README.md · never treat “best known” as “optimal”.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="qgg-table min-w-[640px] text-xs">
+              <thead>
+                <tr>
+                  <th>Instance</th>
+                  <th>Best known</th>
+                  <th>Status</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {HIGHLIGHTED_CURRENT_BKV.map((row) => (
+                  <tr key={row.instance}>
+                    <td className="font-mono">{row.instance}</td>
+                    <td className="font-mono">{row.bestKnown}</td>
+                    <td>{row.status}</td>
+                    <td>{row.source}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <details className="mt-4 text-sm">
+            <summary className="cursor-pointer font-semibold">Show full official BKV table ({OFFICIAL_BEST_KNOWN.length} rows)</summary>
+            <div className="mt-3 max-h-80 overflow-auto">
+              <table className="qgg-table text-xs">
+                <thead>
+                  <tr>
+                    <th>Instance</th>
+                    <th>Best known</th>
+                    <th>Status</th>
+                    <th>Source</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {OFFICIAL_BEST_KNOWN.map((row) => (
+                    <tr key={row.instance}>
+                      <td className="font-mono">{row.instance}</td>
+                      <td className="font-mono">{row.bestKnown}</td>
+                      <td>{row.status}</td>
+                      <td>{row.source}</td>
+                      <td>{row.date}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </QggPanel>
+
+        <QggPanel title="Historical QOBLIB paper comparison">
+          <p className="text-sm text-qgg-muted">
+            Original paper benchmark snapshot (Table 6 / Figure 11–12 era). Not the current leaderboard.
+          </p>
+          <p className="mt-2 text-xs text-qgg-muted">
+            {HISTORICAL_VS_CURRENT_NOTE} Specifically, paper Gurobi on a050_t15_s00 at λ=0.01 is −437,920;
+            current official BKV for a050_t15_s00_b020_l1e-02 is −43,792. Other λ rows on that instance
+            match.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="qgg-table text-xs">
+              <thead>
+                <tr>
+                  <th>λ</th>
+                  <th>Gurobi obj</th>
+                  <th>Gurobi gap %</th>
+                  <th>ABS2 obj</th>
+                  <th>ABS2 gap %</th>
+                </tr>
+              </thead>
+              <tbody>
+                {PAPER_TABLE6.map((row) => (
+                  <tr key={row.lambda}>
+                    <td className="font-mono">{row.lambda}</td>
+                    <td className="font-mono">{row.gurobiObjective}</td>
+                    <td>{row.gurobiGapPct}</td>
+                    <td className="font-mono">{row.abs2Objective}</td>
+                    <td>{row.abs2GapPct}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-4 overflow-x-auto">
+            <table className="qgg-table text-xs">
+              <thead>
+                <tr>
+                  <th>λ</th>
+                  <th>Gurobi gap % (paper)</th>
+                  <th>Gurobi time</th>
+                  <th>ABS2 gap %</th>
+                  <th>ABS2 time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {LAMBDA_BENCHMARK.map((row) => (
+                  <tr key={row.lambda}>
+                    <td className="font-mono">{row.lambda}</td>
+                    <td>{row.gurobiGap}</td>
+                    <td>{row.gurobiTime}</td>
+                    <td>{row.abs2Gap}</td>
+                    <td>{row.abs2Time}</td>
                   </tr>
                 ))}
               </tbody>
@@ -170,8 +327,69 @@ export function PortfolioPage() {
           </div>
         </QggPanel>
 
-        <QggPanel title="Solver runtime vs risk aversion (λ)">
-          <p className="text-xs text-qgg-muted">Figure 11 — Gurobi MIP, 3600s timeout.</p>
+        <QggPanel title="How QOBLIB represents a portfolio solution">
+          <p className="text-sm text-qgg-muted">
+            Canonical format stores counts, not every copy-slot bit. Paraphrased from the official
+            checker docs — see the checker README for the full specification.
+          </p>
+          <pre className="mt-3 overflow-x-auto border border-qgg bg-qgg-paper p-3 font-mono text-xs">
+{`instance po_a010_t10_orig
+budget 4
+lambda 0.0001
+objective -69482
+
+0 AAPL  0 1
+0 GOOGL 3 0
+1 META  1 0
+1 TSLA  0 3`}
+          </pre>
+          <p className="mt-3 text-sm text-qgg-muted">Each position line is period, symbol, long units, short units.</p>
+        </QggPanel>
+
+        <QggPanel title="Benchmarking requires verification">
+          <p className="text-sm text-qgg-muted">
+            A low objective is not enough. The official checker parses the instance, checks capital and
+            position constraints, recomputes the objective in exact arithmetic, and validates any claimed
+            value. Vocabulary: valid, infeasible, invalid solution, best known, optimal. Feasible means
+            constraints hold. Best known is the recorded record. Optimal is proven optimal according to
+            the source.
+          </p>
+        </QggPanel>
+
+        <QggPanel title="Solver submissions">
+          <p className="text-sm text-qgg-muted">
+            Directory names currently present under official <code className="font-mono text-xs">06-portfolio/submissions/</code>.
+            Results are not copied here. Compressed encodings are not the same as the full binary model.
+          </p>
+          <ul className="mt-3 space-y-2 text-sm text-qgg-muted">
+            {OFFICIAL_SUBMISSIONS.map((s) => (
+              <li key={s.id}>
+                <code className="font-mono text-xs">{s.id}</code> — {s.note}
+              </li>
+            ))}
+          </ul>
+        </QggPanel>
+
+        <QggPanel title="From finance to QUBO">
+          <p className="font-mono text-xs leading-7 text-qgg-muted">
+            Portfolio decision → binary variables → objective + constraints → BQP → penalty transform →
+            QUBO / UQO → solver → candidate → canonical conversion → official checker → benchmark result
+          </p>
+        </QggPanel>
+
+        <QggPanel title="What makes a fair benchmark?">
+          <p className="text-sm text-qgg-muted">
+            Same problem definition, instance, objective, constraints, and parameter values; a valid
+            solution; clear runtime methodology; hardware/software context; a repeatable experiment; and
+            a transparent source/version. Solver encodings can compress a problem, so qubit count cannot
+            always be compared with the original binary-variable count.
+          </p>
+        </QggPanel>
+
+        <PortfolioLiveCharts />
+
+        <QggPanel title="Scaling (historical paper figures)">
+          <p className="text-xs text-qgg-muted">QOBLIB Paper — Historical Benchmark. Approximate Figure 11 / 12 visualizations from the original dashboard, not current BKV.</p>
           <div className="qgg-chart mt-6 h-72">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={RUNTIME_BY_LAMBDA}>
@@ -187,55 +405,48 @@ export function PortfolioPage() {
               </LineChart>
             </ResponsiveContainer>
           </div>
+          <div className="qgg-chart mt-6 h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={OBJECTIVE_CONVERGENCE}>
+                <CartesianGrid strokeDasharray="3 3" stroke={QGG_CHART.grid} />
+                <XAxis dataKey="time" tick={{ fill: QGG_CHART.tick, fontSize: 11 }} />
+                <YAxis tick={{ fill: QGG_CHART.tick, fontSize: 11 }} tickFormatter={(v) => `${(v / 1e5).toFixed(1)}×10⁵`} />
+                <Tooltip contentStyle={QGG_CHART.tooltip} formatter={(v) => Number(v).toLocaleString()} />
+                <Legend />
+                <Line type="monotone" dataKey="abs2" name="ABS2 (QUBO)" stroke={QGG_CHART.line[1]} dot={false} strokeWidth={2} />
+                <Line type="monotone" dataKey="gurobi" name="Gurobi (MIP/BQP)" stroke={QGG_CHART.line[0]} dot={false} strokeWidth={2} />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
         </QggPanel>
 
-        <div className="grid gap-6 xl:grid-cols-2">
-          <QggPanel title="Classical vs quantum-ready solver">
-            <p className="text-xs text-qgg-muted">Table 6 — instance po_a050_t15_s00.</p>
-            <div className="mt-4 overflow-x-auto">
-              <table className="qgg-table text-xs">
-                <thead>
-                  <tr>
-                    <th>λ</th>
-                    <th>Gurobi gap %</th>
-                    <th>Gurobi time (s)</th>
-                    <th>ABS2 gap %</th>
-                    <th>ABS2 time (s)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {LAMBDA_BENCHMARK.map((row) => (
-                    <tr key={row.lambda}>
-                      <td className="font-mono">{row.lambda}</td>
-                      <td>{row.gurobiGap}</td>
-                      <td>{row.gurobiTime}</td>
-                      <td>{row.abs2Gap}</td>
-                      <td>{row.abs2Time}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </QggPanel>
+        <QggPanel title="Try it in the Lab">
+          <p className="text-sm text-qgg-muted">
+            <Link to="/lab" className="underline">Open /lab</Link> to run locally downloaded QUBO files. Small 3/4/5-asset
+            families are official but not bundled as local solver files in this checkout.
+          </p>
+        </QggPanel>
 
-          <QggPanel title="Solution quality over time">
-            <p className="text-xs text-qgg-muted">Figure 12 — λ = 0.0005, 50 assets.</p>
-            <div className="qgg-chart mt-4 h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={OBJECTIVE_CONVERGENCE}>
-                  <CartesianGrid strokeDasharray="3 3" stroke={QGG_CHART.grid} />
-                  <XAxis dataKey="time" tick={{ fill: QGG_CHART.tick, fontSize: 11 }} />
-                  <YAxis tick={{ fill: QGG_CHART.tick, fontSize: 11 }} tickFormatter={(v) => `${(v / 1e5).toFixed(1)}×10⁵`} />
-                  <Tooltip contentStyle={QGG_CHART.tooltip} formatter={(v) => Number(v).toLocaleString()} />
-                  <Legend />
-                  <Line type="monotone" dataKey="abs2" name="ABS2 (QUBO)" stroke={QGG_CHART.line[1]} dot={false} strokeWidth={2} />
-                  <Line type="monotone" dataKey="gurobi" name="Gurobi (MIP/BQP)" stroke={QGG_CHART.line[0]} dot={false} strokeWidth={2} />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </QggPanel>
-        </div>
+        <QggPanel title="Sources">
+          <ul className="space-y-1 text-sm text-qgg-muted">
+            {PORTFOLIO_REPO_LAYOUT.map((row) => (
+              <li key={row.dir}>
+                <code className="font-mono text-xs">{row.dir}</code> — {row.desc}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-xs text-qgg-muted">{PORTFOLIO_DATA_FORMAT.prices}</p>
+        </QggPanel>
       </div>
+    </div>
+  )
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="border border-qgg bg-qgg-paper p-4">
+      <p className="font-mono text-xs uppercase text-qgg-muted">{label}</p>
+      <p className="qgg-stat-value mt-1 text-sm">{value}</p>
     </div>
   )
 }

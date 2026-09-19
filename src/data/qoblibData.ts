@@ -43,8 +43,8 @@ export const PORTFOLIO_NAMING = {
   priceInstance: 'po_a{assets}_t{periods}_{orig|sXX}',
   quboProblem: 'a{assets}_t{periods}_{orig|sXX}_b{BBB}_l{lambda}',
   fields: [
-    { code: 'aXXX', meaning: 'Number of assets (10, 50, 200, 400 from S&P 500 by market cap)' },
-    { code: 'tXX', meaning: 'Allocation periods / days (10 or 15)' },
+    { code: 'aXXX', meaning: 'Number of assets (official manifest: 3, 4, 5, 10, 50, 200, 400)' },
+    { code: 'tXX', meaning: 'Allocation periods (official families use 2, 4, 10, or 15)' },
     { code: 'sXX / orig', meaning: 'orig = original S&P data; s00–s02 = perturbed seeds for robustness' },
     { code: 'bXXX', meaning: 'Max positions B (e.g. b020 = hold at most 20 assets per day)' },
     { code: 'lX', meaning: 'Risk aversion λ — higher λ penalizes covariance risk more heavily' },
@@ -66,14 +66,21 @@ export const PORTFOLIO_REPO_LAYOUT = [
   { dir: 'misc/instance_generation/', desc: 'Regenerate instances (main.py)' },
 ]
 
+/** Official checker defaults. Annual percentages are derived teaching labels, not official QOBLIB fields. */
 export const PORTFOLIO_PARAMS = {
-  riskFreeRate: { daily: '0.01%', annual: '2.55%' },
-  transactionCost: { daily: '0.1%', note: 'Applied on buy/sell and liquidation' },
-  shortLoanRate: { daily: '0.0025%', annual: '0.92%' },
-  capitalUnits: 10,
-  cashTotal: '$1,000,000',
-  maxSharesPerAsset: 3,
-  dataSource: 'S&P 500 (Jan–May 2024)',
+  cash: '1,000,000',
+  unit: '100,000',
+  capitalC: '10',
+  delta: '0.001',
+  nu: '0.0001',
+  rho: '0.000025',
+  ub: '3',
+  capitalSlackBits: '4',
+  positionSlackBits: '7',
+  transactionCost: { official: 'δ = 0.001', derivedDailyPct: '0.1% (derived)' },
+  cashInterest: { official: 'ν = 0.0001', derivedDailyPct: '0.01% (derived)' },
+  shortCost: { official: 'ρ = 0.000025', derivedDailyPct: '0.0025% (derived)' },
+  dataSource: 'S&P 500 subsets (official instance README). 3/4/5-asset families are newer repository instances.',
 }
 
 export type PortfolioInstance = {
@@ -84,7 +91,11 @@ export type PortfolioInstance = {
   label: string
 }
 
+/** @deprecated Prefer PORTFOLIO_FAMILIES from qoblibPortfolio.ts (official manifest). */
 export const PORTFOLIO_INSTANCES: PortfolioInstance[] = [
+  { assets: 3, periods: 2, assetLimit: 3, variables: 58, label: 'a003_t02' },
+  { assets: 4, periods: 4, assetLimit: 4, variables: 140, label: 'a004_t04' },
+  { assets: 5, periods: 4, assetLimit: 4, variables: 164, label: 'a005_t04' },
   { assets: 10, periods: 10, assetLimit: 4, variables: 710, label: 'a010_t10' },
   { assets: 10, periods: 15, assetLimit: 4, variables: 1065, label: 'a010_t15' },
   { assets: 50, periods: 10, assetLimit: 20, variables: 3110, label: 'a050_t10' },
@@ -157,7 +168,7 @@ export const BEGINNER_CONCEPTS = [
   },
   {
     term: 'QUBO',
-    plain: 'Quadratic Unconstrained Binary Optimization — a math format with only 0/1 variables and pairwise interactions. Many quantum solvers expect this form.',
+    plain: 'Quadratic Unconstrained Binary Optimization — a problem formulation with 0/1 variables and pairwise terms. It is not itself a quantum algorithm. QAOA is one algorithm that may search a QUBO landscape.',
   },
   {
     term: 'MIP / BQP',

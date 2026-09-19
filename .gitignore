@@ -5,6 +5,9 @@ dist/
 # QOBLIB source clone (regenerate JSON via scripts/ingest_portfolio.py)
 data/qoblib/
 
+# Temporary official-source fetch (do not commit)
+tmp-qoblib-audit/
+
 # Editor / OS
 .vscode/
 .DS_Store

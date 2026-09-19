@@ -83,7 +83,7 @@ export function LabPage() {
   const [verifying, setVerifying] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [quboCatalog, setQuboCatalog] = useState<QuboCatalogFile | null>(null)
-  const [assetFilter, setAssetFilter] = useState<'50' | '10' | 'all'>('50')
+  const [assetFilter, setAssetFilter] = useState<'3' | '4' | '5' | '10' | '50' | '200' | '400' | 'all'>('50')
   const [instanceKey, setInstanceKey] = useState('po_a050_t15_s00')
   const [quboEntryIdx, setQuboEntryIdx] = useState(0)
   const [quboIterations, setQuboIterations] = useState(6000)
@@ -527,9 +527,9 @@ export function LabPage() {
 
       <QggPanel num="3" title="Solve official QOBLIB QUBO">
         <p className="text-xs text-qgg-muted">
-          Loads compressed <code className="font-mono">.qs.xz</code> UQO files from QOBLIB (710–4,665 variables).
-          Reported objectives use QOBLIB UQO convention (ObjectiveOffset − energy) — positive values, comparable to ABS2 QUBO submissions.
-          Gurobi MIP objectives in Table 6 are negative (same economic problem, different formulation sign).
+          Loads compressed <code className="font-mono">.qs.xz</code> UQO files when they are present locally.
+          3/4/5-asset families exist in the official repository but are not bundled as solver files here.
+          Historical Table 6 is a paper snapshot — use current official BKV on /portfolio for repository records.
           Fetch locally: <code className="font-mono text-xs">python scripts/fetch_qubo_files.py --folder a050_t15_s00_b020</code>
         </p>
         {quboCatalog ? (
@@ -538,17 +538,29 @@ export function LabPage() {
             {quboCatalog.localAvailableCount ?? quboCatalog.entries.filter((e) => e.localAvailable).length} downloaded locally
           </p>
         ) : null}
+        {quboInstances.length === 0 && ['3', '4', '5'].includes(assetFilter) ? (
+          <p className="mt-2 text-xs text-qgg-muted">
+            Official instance available · local solver file not downloaded. Inspect the family on /portfolio instead.
+          </p>
+        ) : null}
         <div className="mt-4 flex flex-wrap items-end gap-4">
           <label className="qgg-label">
             Asset scale
             <select
               className="qgg-input block"
               value={assetFilter}
-              onChange={(e) => setAssetFilter(e.target.value as '50' | '10' | 'all')}
+              onChange={(e) =>
+                setAssetFilter(e.target.value as '3' | '4' | '5' | '10' | '50' | '200' | '400' | 'all')
+              }
             >
-              <option value="50">a050 (50 assets — paper scale)</option>
-              <option value="10">a010 (10 assets)</option>
-              <option value="all">All</option>
+              <option value="3">Learning · 3 assets</option>
+              <option value="4">Learning · 4 assets</option>
+              <option value="5">Learning · 5 assets</option>
+              <option value="10">Small benchmark · 10 assets</option>
+              <option value="50">Research · 50 assets</option>
+              <option value="200">Research · 200 assets</option>
+              <option value="400">Research · 400 assets</option>
+              <option value="all">All catalog entries</option>
             </select>
           </label>
           <label className="qgg-label">
@@ -558,11 +570,15 @@ export function LabPage() {
               value={instanceKey}
               onChange={(e) => setInstanceKey(e.target.value)}
             >
-              {quboInstances.map((k) => (
-                <option key={k} value={k}>
-                  {k}
-                </option>
-              ))}
+              {quboInstances.length === 0 ? (
+                <option value="">Official instance available · local solver file not downloaded</option>
+              ) : (
+                quboInstances.map((k) => (
+                  <option key={k} value={k}>
+                    {k}
+                  </option>
+                ))
+              )}
             </select>
           </label>
           <label className="qgg-label">
@@ -600,7 +616,7 @@ export function LabPage() {
             {solvingQubo ? 'Solving…' : 'Run SA & record'}
           </button>
           <p className="w-full text-xs text-qgg-muted">
-            Tip: start with <strong>a010</strong> (710 vars), then move to <strong>a050</strong> (3,110–4,665 vars). Use the λ sweep button above to compare all risk levels on one instance.
+            Tip: 3/4/5-asset families are official but not downloaded as local solver files. Start with downloaded <strong>a010</strong> (710 vars), then <strong>a050</strong>. Current official BKV is on /portfolio — Table 6 below is historical.
           </p>
         </div>
         {selectedQubo && !selectedQubo.localAvailable ? (
@@ -669,7 +685,8 @@ export function LabPage() {
 
       <QggPanel num="4" title="Verify against QOBLIB reference">
         <p className="text-xs text-qgg-muted">
-          Instance <code className="font-mono">po_a050_t15_s00</code> — paper Table 6 (Gurobi 12 vs ABS2 on MIP/BQP vs QUBO).
+          Instance <code className="font-mono">po_a050_t15_s00</code> — historical paper Table 6 (Gurobi vs ABS2).
+          Current official BKV is on /portfolio and is not this table.
         </p>
         <div className="mt-4 flex flex-wrap items-end gap-4">
           <label className="qgg-label">

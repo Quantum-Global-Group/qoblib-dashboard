@@ -12,6 +12,7 @@
     "ingest:baselines": "python scripts/ingest_baselines.py",
     "ingest:qubo": "python scripts/ingest_qubo_catalog.py",
     "fetch:qubo": "python scripts/fetch_qubo_files.py --assets 50",
+    "sync:qoblib": "node scripts/sync-qoblib-portfolio.mjs",
     "server": "python -m uvicorn main:app --reload --port 8000 --app-dir server"
   },
   "dependencies": {

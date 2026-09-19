@@ -1,0 +1,905 @@
+[
+  {
+    "instance": "a003_t02_orig",
+    "bestKnown": -204.0878963861868,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l0",
+    "bestKnown": -110541,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l1e-02",
+    "bestKnown": -1000,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l1e-03",
+    "bestKnown": -8397,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l1e-04",
+    "bestKnown": -69482,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l1e-05",
+    "bestKnown": -103821,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l1e-06",
+    "bestKnown": -109847,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l5e-04",
+    "bestKnown": -27044,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_orig_b004_l5e-05",
+    "bestKnown": -84980,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l0",
+    "bestKnown": -231120,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l1e-02",
+    "bestKnown": -1000,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l1e-03",
+    "bestKnown": -30171,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l1e-04",
+    "bestKnown": -142819,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l1e-05",
+    "bestKnown": -204770,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l1e-06",
+    "bestKnown": -227446,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l5e-04",
+    "bestKnown": -59949,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s00_b004_l5e-05",
+    "bestKnown": -169115,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l0",
+    "bestKnown": -146702,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l1e-02",
+    "bestKnown": -1000,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l1e-03",
+    "bestKnown": -22808,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l1e-04",
+    "bestKnown": -86861,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l1e-05",
+    "bestKnown": -133752,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l1e-06",
+    "bestKnown": -145362,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l5e-04",
+    "bestKnown": -39933,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s01_b004_l5e-05",
+    "bestKnown": -103323,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l0",
+    "bestKnown": -123121,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l1e-02",
+    "bestKnown": -1000,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l1e-03",
+    "bestKnown": -6053,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l1e-04",
+    "bestKnown": -53255,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l1e-05",
+    "bestKnown": -102157,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l1e-06",
+    "bestKnown": -120706,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l5e-04",
+    "bestKnown": -19633,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t10_s02_b004_l5e-05",
+    "bestKnown": -67517,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l0",
+    "bestKnown": -173822,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l1e-02",
+    "bestKnown": -1500,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l1e-03",
+    "bestKnown": -10304,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l1e-04",
+    "bestKnown": -102371,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l1e-05",
+    "bestKnown": -162439,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l1e-06",
+    "bestKnown": -172660,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l5e-04",
+    "bestKnown": -34903,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_orig_b004_l5e-05",
+    "bestKnown": -128828,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l0",
+    "bestKnown": -305223,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l1e-02",
+    "bestKnown": -1500,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l1e-03",
+    "bestKnown": -34944,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l1e-04",
+    "bestKnown": -174429,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l1e-05",
+    "bestKnown": -260398,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l1e-06",
+    "bestKnown": -297922,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l5e-04",
+    "bestKnown": -71733,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s00_b004_l5e-05",
+    "bestKnown": -209366,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l0",
+    "bestKnown": -247943,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l1e-02",
+    "bestKnown": -1500,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l1e-03",
+    "bestKnown": -31250,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l1e-04",
+    "bestKnown": -141340,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l1e-05",
+    "bestKnown": -228862,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l1e-06",
+    "bestKnown": -245915,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l5e-04",
+    "bestKnown": -57907,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s01_b004_l5e-05",
+    "bestKnown": -176875,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l0",
+    "bestKnown": -192631,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l1e-02",
+    "bestKnown": -1500,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l1e-03",
+    "bestKnown": -16363,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l1e-04",
+    "bestKnown": -100135,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l1e-05",
+    "bestKnown": -166630,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l1e-06",
+    "bestKnown": -189531,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l5e-04",
+    "bestKnown": -37224,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a010_t15_s02_b004_l5e-05",
+    "bestKnown": -121102,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l0",
+    "bestKnown": -501737,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l1e-02",
+    "bestKnown": -37107,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l1e-03",
+    "bestKnown": -206239,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l1e-04",
+    "bestKnown": -370869,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l1e-05",
+    "bestKnown": -478956,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l1e-06",
+    "bestKnown": -499339,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l5e-04",
+    "bestKnown": -254972,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_orig_b020_l5e-05",
+    "bestKnown": -417218,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l0",
+    "bestKnown": -517725,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l1e-02",
+    "bestKnown": -12340,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l1e-03",
+    "bestKnown": -191879,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l1e-04",
+    "bestKnown": -355530,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l1e-05",
+    "bestKnown": -484396,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l1e-06",
+    "bestKnown": -513409,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l5e-04",
+    "bestKnown": -234259,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s00_b020_l5e-05",
+    "bestKnown": -408937,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l0",
+    "bestKnown": -431905,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l1e-02",
+    "bestKnown": -2248,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l1e-03",
+    "bestKnown": -141376,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l1e-04",
+    "bestKnown": -301400,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l1e-05",
+    "bestKnown": -402742,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l1e-06",
+    "bestKnown": -428609,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l5e-04",
+    "bestKnown": -183574,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s01_b020_l5e-05",
+    "bestKnown": -342074,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l0",
+    "bestKnown": -625562,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l1e-02",
+    "bestKnown": -43565,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l1e-03",
+    "bestKnown": -233766,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l1e-04",
+    "bestKnown": -443357,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l1e-05",
+    "bestKnown": -594866,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l1e-06",
+    "bestKnown": -622388,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l5e-04",
+    "bestKnown": -287872,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t10_s02_b020_l5e-05",
+    "bestKnown": -507544,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l0",
+    "bestKnown": -773902,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l1e-02",
+    "bestKnown": -31504,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l1e-03",
+    "bestKnown": -321907,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l1e-04",
+    "bestKnown": -572490,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l1e-05",
+    "bestKnown": -736833,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l1e-06",
+    "bestKnown": -769790,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l5e-04",
+    "bestKnown": -397497,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_orig_b020_l5e-05",
+    "bestKnown": -639825,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l0",
+    "bestKnown": -879572,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l1e-02",
+    "bestKnown": -43792,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l1e-03",
+    "bestKnown": -314736,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l1e-04",
+    "bestKnown": -586823,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l1e-05",
+    "bestKnown": -819899,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l1e-06",
+    "bestKnown": -872055,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l5e-04",
+    "bestKnown": -386990,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s00_b020_l5e-05",
+    "bestKnown": -680124,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l0",
+    "bestKnown": -672711,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l1e-02",
+    "bestKnown": -13706,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l1e-03",
+    "bestKnown": -243245,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l1e-04",
+    "bestKnown": -473765,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l1e-05",
+    "bestKnown": -626762,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l1e-06",
+    "bestKnown": -667210,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l5e-04",
+    "bestKnown": -304289,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s01_b020_l5e-05",
+    "bestKnown": -533733,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l0",
+    "bestKnown": -885463,
+    "status": "optimal",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l1e-02",
+    "bestKnown": -40622,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l1e-03",
+    "bestKnown": -316799,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l1e-04",
+    "bestKnown": -604145,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l1e-05",
+    "bestKnown": -830838,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l1e-06",
+    "bestKnown": -879472,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l5e-04",
+    "bestKnown": -392668,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  },
+  {
+    "instance": "a050_t15_s02_b020_l5e-05",
+    "bestKnown": -692197,
+    "status": "best known",
+    "source": "reference",
+    "date": "—"
+  }
+]

@@ -53,7 +53,7 @@ export const SLIDES: Slide[] = [
     bullets: [
       'Download instances + models from GitHub / GitLab',
       'Run your solver (Gurobi, QAOA, annealing, custom heuristics)',
-      'Verify feasibility with included check scripts',
+      'Verify with the official checker — a low score is not enough',
       'Submit results in the standard format to track progress',
     ],
     notes:
@@ -64,13 +64,27 @@ export const SLIDES: Slide[] = [
     title: 'Portfolio Optimization (#06)',
     bullets: [
       'Multi-period Markowitz with transaction costs & short selling',
-      'Binary hold/skip decisions across 10–15 trading days',
-      'Real S&P 500 prices & covariances (Jan–May 2024)',
-      '32 instances: 10 / 50 / 200 / 400 assets',
+      'Official model: asset × unit copy × long/short × period',
+      'New small families: 3×2, 4×4, 5×4 plus 10 / 50 / 200 / 400',
+      '44 official base directories × λ grid (manifest is source of truth)',
     ],
     notes:
-      'This is the finance hook. λ controls risk vs return. Higher λ makes classical solvers struggle — good stress test.',
-    accent: '$1M capital, realistic fees, NP-hard at scale',
+      'Finance hook. Official model is asset × unit copy × long/short × period plus slacks — not one hold/skip bit. λ is the official risk weight. Do not invent extra λ values.',
+    accent: '$1M capital · official δ / ν / ρ · NP-hard at scale',
+  },
+  {
+    id: 'teach-path',
+    title: '5–7 minute teaching path',
+    bullets: [
+      '0–1 min: why shared tests matter; QUBO ≠ QAOA',
+      '1–2 min: 3-asset family — inspect every variable',
+      '2–4 min: 4–5 assets — risk λ, capital C, budget B',
+      '4–6 min: 10-asset live prices, then 50-asset research scale',
+      '6–7 min: official checker + current BKV vs historical Table 6',
+    ],
+    notes:
+      'If time is short, skip live 50-asset charts. Never treat paper Table 6 λ=0.01 (−437,920) as the current official BKV (−43,792). Do not claim quantum advantage.',
+    accent: 'Start small · then scale · then verify',
   },
   {
     id: 'live-data',
@@ -82,7 +96,7 @@ export const SLIDES: Slide[] = [
       'Switch instances in the Portfolio Deep Dive page',
     ],
     notes:
-      'Demo the instance selector live. Show po_a010_t10_orig then po_a050_t15_s00 to contrast size.',
+      'Start on a003_t02 conceptually, then show po_a010_t10_orig live prices, then po_a050_t15_s00.',
   },
   {
     id: 'workforce-qgg',
@@ -116,7 +130,7 @@ export const SLIDES: Slide[] = [
     bullets: [
       'Parameter panel: qubit sweep shows exponential scaling',
       'IBM connect → run on ibm_torino (or simulator if queue long)',
-      'QUBO λ sweep on po_a050_t15_s00 vs ABS2 baselines',
+      'QUBO λ sweep on downloaded files vs historical paper Table 6',
       'Recorded run log — students duplicate for weekly reports',
     ],
     notes:
@@ -127,8 +141,8 @@ export const SLIDES: Slide[] = [
     id: 'results',
     title: 'Key results (so far)',
     bullets: [
-      'Classical Gurobi: best final solution quality on portfolio instances',
-      'ABS2 (QUBO/GPU): reaches good solutions faster on some settings',
+      'Paper Table 6 is historical; current BKV is the repository record',
+      'Do not compare paper −437,920 with official −43,792 at λ=0.01',
       'No quantum advantage claimed — this sets up the race',
       'Higher risk aversion λ → harder & slower for all solvers',
     ],

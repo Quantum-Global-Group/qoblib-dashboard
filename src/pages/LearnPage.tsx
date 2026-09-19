@@ -48,9 +48,9 @@ export function LearnPage() {
         <QggPanel num="02" title="Portfolio problem — explained like a story">
           <div className="space-y-4 text-sm leading-relaxed text-qgg-muted">
             <p>
-              Imagine you manage <strong className="text-qgg-fg">$1 million</strong> and can choose from the largest
-              S&P 500 companies. Every day for 10–15 trading days, you decide which stocks to hold (yes/no), whether to
-              go long or short, and how much cash to keep earning a tiny risk-free rate.
+              Imagine you manage <strong className="text-qgg-fg">$1 million</strong> and can choose from S&amp;P 500
+              names. For each period the official model decides asset, unit copy, long/short direction, unused capital,
+              and whether the position budget is respected — not a single hold-or-skip bit per stock.
             </p>
             <p>
               You want <strong className="text-qgg-fg">more profit</strong> but also want to avoid wild swings (risk).
@@ -70,6 +70,42 @@ export function LearnPage() {
               any new solver.
             </p>
           </div>
+        </QggPanel>
+
+        <QggPanel num="02b" title="Start small, then scale">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            Official QOBLIB now includes 3×2, 4×4, and 5×4 asset/period families. Use them to see every variable
+            before jumping to 710+ binary variables on 10-asset problems. Those small families are newer
+            repository instances, not the original paper&apos;s 10 / 50 / 200 / 400 set.
+          </p>
+        </QggPanel>
+
+        <QggPanel num="02c" title="QUBO is a formulation, QAOA is an algorithm">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            QUBO describes a 0/1 quadratic problem. QAOA is one variational algorithm that may search a
+            landscape. Annealing is a different method. Classical MIP/BQP solvers can also attack the same
+            economic problem. None of those facts implies quantum advantage.
+          </p>
+        </QggPanel>
+
+        <QggPanel num="02d" title="A score is not a benchmark result">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            The official checker parses the instance, checks capital and position constraints, recomputes
+            the objective in exact arithmetic, and validates any claimed value. Vocabulary: valid,
+            infeasible, invalid, best known, optimal. Best known is a recorded record, not a proof of
+            optimality. Current official BKV lives on /portfolio; paper Table 6 is a historical snapshot.
+            One λ=0.01 paper Gurobi value (−437,920) does not match the current official BKV (−43,792) —
+            do not compare that pair without establishing model/version equivalence.
+          </p>
+        </QggPanel>
+
+        <QggPanel num="02e" title="What makes a fair comparison">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            Same problem definition, instance, objective, constraints, and parameters; a valid solution;
+            clear runtime methodology; hardware/software context; a repeatable experiment; and a
+            transparent source/version. Compressed encodings can use fewer qubits than the full binary
+            model, so qubit count is not automatically the official variable count.
+          </p>
         </QggPanel>
 
         <QggPanel num="03" title="The other 9 problems (one sentence each)">

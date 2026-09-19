@@ -52,7 +52,7 @@ const GRID_SECTIONS = [
     dark: false,
     to: '/portfolio',
     body: PAPER.title,
-    items: ['32 portfolio instances', '258 submission records', 'Paper Table 6 verification'],
+    items: ['Official manifest families (3–400 assets)', 'Current BKV + historical Table 6', 'Checker-first verification'],
     cta: 'PORTFOLIO DEEP DIVE ↗',
   },
   {
@@ -77,7 +77,7 @@ export function OverviewPage() {
             </h1>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-qgg-muted lg:text-base">
               QOBLIB workforce lab by Quantum Global Group — interactive benchmark dashboard for portfolio
-              optimization (#06). Students connect IBM Quantum, run pilots, and verify results against published
+              optimization (#06). Students connect IBM Quantum, run pilots, and verify results against official
               QOBLIB submissions the same way industry teams do.
             </p>
             <div className="mt-8 flex flex-wrap gap-6">

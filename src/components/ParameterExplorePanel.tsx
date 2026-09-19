@@ -42,8 +42,8 @@ const PARAM_GUIDE = [
   },
   {
     knob: 'Assets / periods (QUBO)',
-    increases: 'QOBLIB binary variables scale from 710 (a010_t10) to 36,165 (a400_t15).',
-    studentTry: 'Compare a010 vs a050 at the same λ; watch runtime and gap vs ABS2.',
+    increases: 'Official families now include 3/4/5-asset learning sizes; downloaded QUBOs here start at 710 (a010_t10) and scale to 36,165 (a400_t15).',
+    studentTry: 'Compare a010 vs a050 at the same λ; watch runtime and gap vs historical ABS2 / paper Table 6.',
   },
   {
     knob: 'Risk λ',

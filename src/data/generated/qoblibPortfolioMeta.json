@@ -1,0 +1,12 @@
+{
+  "category": "Official QOBLIB Repository — Current",
+  "repository": "https://github.com/ZIB-AOPT/QOBLIB",
+  "portfolio": "https://github.com/ZIB-AOPT/QOBLIB/tree/main/06-portfolio",
+  "manifestUrl": "https://github.com/ZIB-AOPT/QOBLIB/blob/main/06-portfolio/instances/manifest.json",
+  "solutionsUrl": "https://github.com/ZIB-AOPT/QOBLIB/blob/main/06-portfolio/solutions/README.md",
+  "checkerUrl": "https://github.com/ZIB-AOPT/QOBLIB/tree/main/06-portfolio/check",
+  "modelsUrl": "https://github.com/ZIB-AOPT/QOBLIB/tree/main/06-portfolio/models",
+  "sourceCommit": "2b400f43c197bb0eb9bc9802efa2b28b818ab63c",
+  "syncedAt": "2026-09-19T20:28:35.953Z",
+  "bestKnownRowCount": 129
+}

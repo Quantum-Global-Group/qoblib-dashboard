@@ -2,18 +2,41 @@
 
 Interactive presentation dashboard for the paper **Quantum Optimization Benchmarking Library — The Intractable Decathlon** ([arXiv:2504.03832](https://arxiv.org/abs/2504.03832)).
 
-Visualizes all 10 benchmark problem classes with a deep dive on **Portfolio Optimization (#06)**, aligned with the [official QOBLIB 06-portfolio README](https://github.com/ZIB-AOPT/QOBLIB/tree/main/06-portfolio).
+Visualizes all 10 benchmark problem classes with a deep dive on **Portfolio Optimization (#06)**. Official current facts come from [ZIB-AOPT/QOBLIB `06-portfolio`](https://github.com/ZIB-AOPT/QOBLIB/tree/main/06-portfolio). `instances/manifest.json` is the single source of truth for instance configuration. Paper tables stay labeled as historical.
 
 **Live site:** https://quantumkev.github.io/qoblib-dashboard/
+
+This is a Quantum Global Group educational interface. It does not invent best-known values, does not claim quantum advantage, and does not treat QUBO as a quantum algorithm.
+
+## Provenance
+
+| Category | What it is |
+|----------|------------|
+| Official QOBLIB Repository — Current | Checked-in snapshots in `src/data/generated/` from `npm run sync:qoblib` |
+| QOBLIB Paper — Historical Benchmark | Table 6 / Figure 11–12 era numbers in `src/data/qoblibData.ts` |
+| QGG Educational Experiment | Lab runs, QAOA demos, student sweeps |
+| User Run | Live /lab solves |
+
+Refresh official snapshots (does not invent numbers):
+
+```powershell
+npm run sync:qoblib
+```
+
+Do not commit `tmp-qoblib-audit/` or secrets.
 
 ## Portfolio problem (#06)
 
 Multi-period Markowitz portfolio optimization with:
 
-- Transaction costs (δ) on buys, sells, and liquidation  
-- Short selling with borrowing cost (ρₛ)  
-- Capital limit **C** and position limit **B** (binary slack encodings)  
-- Real S&P 500 price and covariance data (top 10 / 50 / 200 / 400 stocks by market cap)
+- Official decision model: asset × unit copy × long/short × period, plus 4 capital slacks and 7 position slacks per period  
+- Binary-variable count `(6 × assets + 11) × periods` (decision variables, not physical qubits)  
+- Transaction cost δ = 0.001, cash interest ν = 0.0001, short cost ρ = 0.000025  
+- Capital C = 10 units of $100,000; official B map 3→3, 4→4, 5→4, 10→4, 50→20, 200→50, 400→100  
+- Official families now include 3×2, 4×4, and 5×4 (newer repository instances) plus the original paper scales 10 / 50 / 200 / 400  
+- Official λ grid: 0 … 0.01 (see manifest)
+
+Local price JSON in this checkout currently covers a010–a400 only. 3/4/5-asset families are official but not downloaded as local solver files.
 
 ### Instance naming (QOBLIB convention)
 
@@ -26,6 +49,12 @@ Multi-period Markowitz portfolio optimization with:
 - **bXXX** — max assets per day (B)  
 - **lX** — risk aversion λ (higher = more risk-averse, harder to solve)
 
+### Current BKV vs historical Table 6
+
+Current official best-known values are auto-generated in `solutions/README.md` and synced into `src/data/generated/qoblibPortfolioBestKnown.json`. “Best known” is not “optimal”.
+
+Paper Table 6 on `po_a050_t15_s00` is a historical snapshot. Most Gurobi objectives on that instance match current BKV; the λ=0.01 paper Gurobi value (−437,920) does **not** match current official BKV `a050_t15_s00_b020_l1e-02` (−43,792). Do not compare that pair without establishing model/version equivalence. This dashboard does not guess why.
+
 ### Objective sign conventions
 
 | Solver | Model | Reported objective |
@@ -33,7 +62,7 @@ Multi-period Markowitz portfolio optimization with:
 | Gurobi | MIP/BQP | Negative (minimize economic cost) |
 | ABS2 | QUBO/UQO | Positive (`ObjectiveOffset − QUBO energy`) |
 
-The **Quantum Lab** compares QUBO runs against **ABS2** references and Table 6 **Gurobi** MIP values separately.
+The **Quantum Lab** compares local QUBO runs against ingested ABS2 records and **historical** Table 6. Use `/portfolio` for current official BKV.
 
 ## Pages
 
@@ -41,16 +70,27 @@ The **Quantum Lab** compares QUBO runs against **ABS2** references and Table 6 *
 |-------|---------|
 | `/` | Overview and why QOBLIB exists |
 | `/decathlon` | All 10 problem classes + size chart |
-| `/portfolio` | Formulation, naming, live price/covariance data, paper charts |
+| `/portfolio` | Official families, current BKV, historical paper tables, checker |
 | `/workforce` | **IBM HBCU + Quantum Global Group workforce program** — industry playbook, 5-week curriculum |
 | `/lab` | IBM Quantum + QUBO solve + QOBLIB verification (local API) |
 | `/learn` | Beginner-friendly explanations |
 | `/present` | Fullscreen presentation mode |
 
-## Local development
+## Build and host (GitHub, not this machine)
+
+The live site is built by GitHub Actions on push to `main` and deployed to GitHub Pages. Do not keep `node_modules`, `dist`, or a local QOBLIB clone on this computer unless you are actively editing.
 
 ```powershell
-cd c:\Users\Dev\qoblib-dashboard
+git push origin main
+```
+
+Workflow: `.github/workflows/deploy-pages.yml` → https://quantumkev.github.io/qoblib-dashboard/
+
+## Optional local development
+
+Only if you need to edit on this machine. Delete `node_modules` and `dist` afterward.
+
+```powershell
 npm install
 npm run dev
 ```
@@ -88,8 +128,8 @@ The top panel on `/lab` lets learners **change variables and compare outcomes**:
 |------|--------|---------------------|
 | **Qubits** (slider) | Section 2 | Search space grows as 2ⁿ; runtime/noise increase on hardware |
 | **QAOA reps / shots** | Section 2 | Circuit depth vs solution quality |
-| **Asset scale** (a010 → a050) | Section 3 | QUBO size 710 → 4,665 variables |
-| **Risk λ** | Section 3 | Paper Figure 11 — harder problems as λ changes |
+| **Asset scale** (a010 → a050) | Section 3 | Downloaded QUBO size 710 → 4,665 variables; 3/4/5-asset official files are not bundled |
+| **Risk λ** | Section 3 | Official λ grid; paper Figure 11 is historical |
 | **SA iterations** | Section 3 | Classical effort vs objective gap |
 
 **One-click sweeps:**
@@ -101,7 +141,10 @@ Each manual run is **recorded automatically** in the comparison log.
 ## Ingest & fetch QOBLIB data
 
 ```powershell
-# Portfolio price/covariance JSON (32 instances: a010–a400)
+# Official manifest + current BKV snapshots
+npm run sync:qoblib
+
+# Portfolio price/covariance JSON (local checkout: a010–a400)
 npm run ingest
 
 # Submission CSVs → baselines.json (258 records)
