@@ -103,12 +103,12 @@ export const SLIDES: Slide[] = [
     title: 'Quantum Global Group — industry playbook in software',
     bullets: [
       'Define outcome → fit check → pilot → benchmark → report → enable team',
-      'Same six steps mapped to routes: /workforce, /lab, /portfolio, /present',
+      'Same steps mapped to routes: /guide, /lab, /portfolio, /present',
       'Students produce deliverables they can explain to executives',
       'Portfolio optimization aligns with QGG hybrid quantum finance research',
     ],
     notes:
-      'Open /workforce first. Walk the playbook cards. Emphasize capability building is the product — not a one-off demo.',
+      'Open /guide first. Walk the playbook cards. Emphasize capability building is the product — not a one-off demo.',
     accent: 'quantumglobalgroup.io · workforce development',
   },
   {
@@ -143,7 +143,7 @@ export const SLIDES: Slide[] = [
       'QOBLIB + this dashboard = a reusable workforce lab you can fork',
       'Cite IBM Quantum / Qiskit when you use the hardware or simulator path',
       'Quantum Global Group playbook: define → fit check → pilot → benchmark → report',
-      'Live: /lab · Map: /workforce · Deck: /present',
+      'Live: /lab · Map: /guide · Deck: /present',
       'Questions?',
     ],
     notes:
