@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-// GitHub Pages project site: https://quantumkev.github.io/qoblib-dashboard/
+// GitHub Pages project site: https://quantum-global-group.github.io/qoblib-dashboard/
 const repoBase = process.env.GITHUB_ACTIONS ? '/qoblib-dashboard/' : '/'
 
 export default defineConfig({

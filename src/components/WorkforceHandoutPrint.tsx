@@ -8,7 +8,7 @@ import {
 
 /** One-page print handout — hidden on screen, shown when printing or saving as PDF */
 export function WorkforceHandoutPrint() {
-  const site = 'https://quantumkev.github.io/qoblib-dashboard'
+  const site = 'https://quantum-global-group.github.io/qoblib-dashboard'
   const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
 
   return (
@@ -119,7 +119,7 @@ export function WorkforceHandoutPrint() {
           <div>
             <p className="font-semibold text-gray-800">Quantum Global Group</p>
             <p>{PARTNERS.quantumGlobalGroup.url} · Kevin Robinson, CEO</p>
-            <p className="mt-0.5">GitHub: github.com/QuantumKev/qoblib-dashboard</p>
+            <p className="mt-0.5">GitHub: github.com/Quantum-Global-Group/qoblib-dashboard</p>
           </div>
           <div className="text-right">
             <p className="font-semibold text-[#052FAD]">IBM Quantum — cited source</p>

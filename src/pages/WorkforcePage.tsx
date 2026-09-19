@@ -188,8 +188,8 @@ export function WorkforcePage() {
           </p>
           <p className="mt-2 text-xs text-[#888]">
             Suggested path: Lab → Portfolio → Present. Repo:{' '}
-            <a href="https://github.com/QuantumKev/qoblib-dashboard" target="_blank" rel="noreferrer" className="text-qgg-accent underline">
-              QuantumKev/qoblib-dashboard
+            <a href="https://github.com/Quantum-Global-Group/qoblib-dashboard" target="_blank" rel="noreferrer" className="text-qgg-accent underline">
+              Quantum-Global-Group/qoblib-dashboard
             </a>
           </p>
         </QggPanel>

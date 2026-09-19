@@ -67,7 +67,7 @@ export function AppShell() {
             <a href="https://www.ibm.com/quantum" target="_blank" rel="noreferrer" className="qgg-link">
               IBM Quantum ↗
             </a>
-            <a href="https://github.com/QuantumKev/qoblib-dashboard" target="_blank" rel="noreferrer" className="qgg-link">
+            <a href="https://github.com/Quantum-Global-Group/qoblib-dashboard" target="_blank" rel="noreferrer" className="qgg-link">
               GitHub ↗
             </a>
             <span className="text-qgg-muted">© {new Date().getFullYear()} Quantum Global Group</span>

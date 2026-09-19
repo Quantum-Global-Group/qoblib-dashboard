@@ -4,7 +4,7 @@ Interactive presentation dashboard for the paper **Quantum Optimization Benchmar
 
 Visualizes all 10 benchmark problem classes with a deep dive on **Portfolio Optimization (#06)**. Official current facts come from [ZIB-AOPT/QOBLIB `06-portfolio`](https://github.com/ZIB-AOPT/QOBLIB/tree/main/06-portfolio). `instances/manifest.json` is the single source of truth for instance configuration. Paper tables stay labeled as historical.
 
-**Live site:** https://quantumkev.github.io/qoblib-dashboard/
+**Live site:** https://quantum-global-group.github.io/qoblib-dashboard/
 
 This is a Quantum Global Group educational interface. It does not invent best-known values, does not claim quantum advantage, and does not treat QUBO as a quantum algorithm.
 
@@ -84,7 +84,7 @@ The live site is built by GitHub Actions on push to `main` and deployed to GitHu
 git push origin main
 ```
 
-Workflow: `.github/workflows/deploy-pages.yml` → https://quantumkev.github.io/qoblib-dashboard/
+Workflow: `.github/workflows/deploy-pages.yml` → https://quantum-global-group.github.io/qoblib-dashboard/
 
 ## Optional local development
 
