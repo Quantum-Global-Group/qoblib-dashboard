@@ -341,7 +341,7 @@ export function LabPage() {
     <div>
       <PageHeader
         num="01"
-        title="Quantum Playground"
+        title="Quantum Lab"
         subtitle="Connect IBM Quantum for a hardware warmup, then run official QOBLIB portfolio QUBOs at a050 scale (3,110–4,665 variables) with classical simulated annealing and compare against published ABS2/Gurobi results."
       >
         <Link to="/workforce" className="qgg-btn">
@@ -352,14 +352,15 @@ export function LabPage() {
       <div className="qgg-page-inner space-y-8">
         <div>
           <p className="text-sm text-qgg-muted">
-            Aligned with{' '}
-            <a href="https://www.ibm.com/quantum/blog/ibm-hbcu-quantum-center" target="_blank" rel="noreferrer" className="qgg-link">
-              IBM-HBCU Quantum Center
-            </a>{' '}
-            &{' '}
+            Lab by{' '}
             <a href="https://www.quantumglobalgroup.io" target="_blank" rel="noreferrer" className="qgg-link">
               Quantum Global Group
             </a>
+            . Hardware/simulator path uses{' '}
+            <a href="https://www.ibm.com/quantum" target="_blank" rel="noreferrer" className="qgg-link">
+              IBM Quantum
+            </a>{' '}
+            and Qiskit as sources.
           </p>
           {apiOnline === false ? (
             <div className="qgg-alert-error mt-4 text-sm">

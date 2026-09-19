@@ -17,7 +17,7 @@ export function Sidebar() {
         <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">QOBLIB</p>
         <h1 className="mt-1 text-lg font-semibold leading-snug text-white">Intractable Decathlon</h1>
         <p className="mt-2 text-xs leading-relaxed text-slate-400">Interactive dashboard for arXiv:2504.03832</p>
-        <p className="mt-2 text-[10px] leading-relaxed text-emerald-500/80">IBM HBCU · Quantum Global Group workforce lab</p>
+        <p className="mt-2 text-[10px] leading-relaxed text-emerald-500/80">Quantum Global Group workforce lab</p>
       </div>
       <nav className="flex flex-col gap-1">
         {links.map((link) => (
@@ -44,12 +44,12 @@ export function Sidebar() {
           Paper on arXiv
         </a>
         <a
-          href="https://www.ibm.com/quantum/blog/ibm-hbcu-quantum-center"
+          href="https://www.ibm.com/quantum"
           target="_blank"
           rel="noreferrer"
           className="block hover:text-cyan-400"
         >
-          IBM-HBCU Quantum Center
+          IBM Quantum (source)
         </a>
         <a href="https://www.quantumglobalgroup.io" target="_blank" rel="noreferrer" className="block hover:text-cyan-400">
           Quantum Global Group

@@ -45,17 +45,20 @@ export function PresentPage() {
         </div>
         <div className="present-chrome flex items-center gap-3 font-mono text-xs text-qgg-muted">
           <span className="hidden md:inline">← → navigate · N notes</span>
-          <Link to="/workforce" className="qgg-btn text-[10px]">
-            WORKFORCE
+          <button type="button" onClick={() => setShowNotes((v) => !v)} className="qgg-btn text-[10px]">
+            {showNotes ? 'HIDE NOTES' : 'NOTES'}
+          </button>
+          <Link to="/lab" className="qgg-btn qgg-btn-accent text-[10px]">
+            OPEN LAB ↗
           </Link>
-          <Link to="/" className="qgg-btn qgg-btn-accent text-[10px]">
-            EXIT ↗
+          <Link to="/" className="qgg-btn text-[10px]">
+            EXIT
           </Link>
         </div>
       </header>
 
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <main className="flex flex-1 flex-col justify-center px-12 py-10 lg:px-20">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+        <main className="min-h-0 flex-1 overflow-y-auto px-12 py-8 lg:px-20">
           {slide.accent ? (
             <p className="mb-4 font-mono text-xs uppercase tracking-widest text-qgg-muted">{slide.accent}</p>
           ) : null}
@@ -76,14 +79,17 @@ export function PresentPage() {
         </main>
 
         {showNotes ? (
-          <aside className="present-chrome border-t-2 border-qgg bg-qgg-accent/50 px-12 py-4 lg:px-20">
+          <aside className="present-chrome shrink-0 border-t-2 border-qgg bg-qgg-accent/50 px-12 py-3 lg:px-20">
             <p className="font-mono text-xs font-semibold uppercase tracking-wide">Speaker notes</p>
+            <p className="mt-1 max-w-4xl text-sm text-qgg-muted">
+              Coaching for the presenter — hide this for an audience with N or Notes.
+            </p>
             <p className="mt-2 max-w-4xl text-sm leading-relaxed">{slide.notes}</p>
           </aside>
         ) : null}
       </div>
 
-      <footer className="present-chrome flex items-center justify-between border-t-2 border-qgg px-6 py-4">
+      <footer className="present-chrome flex shrink-0 items-center justify-between border-t-2 border-qgg px-6 py-3">
         <button type="button" onClick={prev} disabled={index === 0} className="qgg-btn disabled:opacity-30">
           PREVIOUS
         </button>

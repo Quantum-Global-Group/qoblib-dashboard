@@ -22,7 +22,7 @@ export function PartnerCoBrand({ compact = false }: Props) {
   return (
     <div className="grid gap-0 border-2 border-qgg sm:grid-cols-3">
       <a
-        href={PARTNERS.ibmHbcu.url}
+        href="https://www.ibm.com/quantum"
         target="_blank"
         rel="noreferrer"
         className="group border-b border-qgg bg-qgg-paper p-4 transition hover:bg-qgg-accent sm:border-b-0 sm:border-r"
@@ -33,7 +33,7 @@ export function PartnerCoBrand({ compact = false }: Props) {
           </div>
           <div>
             <p className="text-sm font-semibold group-hover:underline">IBM Quantum</p>
-            <p className="text-[10px] leading-tight text-qgg-muted">HBCU Quantum Center · Qiskit · Cloud access</p>
+            <p className="text-[10px] leading-tight text-qgg-muted">Source · Qiskit · IBM Quantum Platform</p>
           </div>
         </div>
       </a>

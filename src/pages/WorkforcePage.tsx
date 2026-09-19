@@ -5,11 +5,9 @@ import { PageHeader } from '../components/ui/PageHeader'
 import { QggPanel } from '../components/ui/QggPanel'
 import {
   ENTERPRISE_VS_STUDENT,
-  HBCU_MEMBERS,
-  IBM_HBCU_ALIGNMENT,
-  IBM_PITCH_POINTS,
+  HOW_TO_USE,
   INDUSTRY_PLAYBOOK,
-  PARTNERS,
+  SOURCES,
   STUDENT_MODULES,
 } from '../data/workforceData'
 
@@ -70,12 +68,12 @@ export function WorkforcePage() {
     <>
       <WorkforceHandoutPrint />
       <PageHeader
-        num="03"
-        title="Services & Workforce"
-        subtitle="Train students to duplicate the same quantum optimization workflow enterprises use — with visuals they can present."
+        num="05"
+        title="Workforce Lab"
+        subtitle="A reusable training lab for quantum optimization. Open the Lab to run experiments. Use this page for the teaching path, cohort outline, and one-page handout."
       >
         <Link to="/lab" className="qgg-btn qgg-btn-accent">
-          START LAB ↗
+          OPEN LAB ↗
         </Link>
         <Link to="/present" className="qgg-btn">
           PRESENT
@@ -83,81 +81,34 @@ export function WorkforcePage() {
         <button type="button" onClick={printHandout} className="qgg-btn">
           HANDOUT PDF
         </button>
-        <a
-          href={PARTNERS.ibmHbcu.educatorsUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="qgg-btn"
-        >
-          IBM EDUCATORS ↗
-        </a>
       </PageHeader>
 
       <div className="no-print qgg-page-inner space-y-8">
         <QggPanel>
           <PartnerCoBrand />
           <p className="mt-6 text-sm leading-relaxed text-qgg-muted">
-            This dashboard connects the{' '}
-            <a href={PARTNERS.ibmHbcu.url} target="_blank" rel="noreferrer" className="qgg-link">
-              IBM-HBCU Quantum Center
-            </a>{' '}
-            model (cloud access, Qiskit, research pathways) with{' '}
-            <a href={PARTNERS.quantumGlobalGroup.url} target="_blank" rel="noreferrer" className="qgg-link">
-              Quantum Global Group
-            </a>{' '}
-            execution playbooks (define → benchmark → enable teams). Students don&apos;t just watch demos — they produce
-            benchmark reports on the same QOBLIB portfolio problem IBM helped publish.
+            Quantum Global Group built this lab so students and working teams can practice the same define →
+            fit check → pilot → benchmark → report workflow on official QOBLIB portfolio instances. The Lab is
+            the workspace. This page is the map.
           </p>
         </QggPanel>
 
-        <section className="grid gap-0 border border-qgg lg:grid-cols-2">
-          <div className="border-b border-qgg bg-qgg-paper p-6 lg:border-b-0 lg:border-r">
-            <p className="font-mono text-xs uppercase text-qgg-muted">Partner alignment</p>
-            <h3 className="mt-2 qgg-section-title text-sm">{PARTNERS.ibmHbcu.name}</h3>
-            <p className="mt-2 text-sm text-qgg-muted">{PARTNERS.ibmHbcu.tagline}</p>
-            <ul className="mt-4 space-y-2 text-xs text-qgg-muted">
-              <li>• {PARTNERS.ibmHbcu.memberCount} HBCU member institutions</li>
-              <li>• Qiskit + IBM Quantum cloud access for students & faculty</li>
-              <li>• Research advisory board incl. IBM Quantum education leadership</li>
-            </ul>
-            <div className="mt-4 flex flex-wrap gap-2 font-mono text-xs">
-              <a href={PARTNERS.ibmHbcu.url} target="_blank" rel="noreferrer" className="qgg-link">
-                Center ↗
-              </a>
-              <span>·</span>
-              <a href={PARTNERS.ibmHbcu.learningUrl} target="_blank" rel="noreferrer" className="qgg-link">
-                Learning ↗
-              </a>
-              <span>·</span>
-              <a href={PARTNERS.ibmHbcu.qiskitUrl} target="_blank" rel="noreferrer" className="qgg-link">
-                Qiskit ↗
-              </a>
-            </div>
-          </div>
-          <div className="bg-qgg-accent/20 p-6">
-            <p className="font-mono text-xs uppercase text-qgg-muted">Partner alignment</p>
-            <h3 className="mt-2 qgg-section-title text-sm">{PARTNERS.quantumGlobalGroup.name}</h3>
-            <p className="mt-2 text-sm text-qgg-muted">{PARTNERS.quantumGlobalGroup.mission}</p>
-            <ul className="mt-4 space-y-2 text-xs text-qgg-muted">
-              <li>• Workforce development: project-based training theory → delivery</li>
-              <li>• Research incl. quantum portfolio optimization & hybrid QML</li>
-              <li>• Real QPU access patterns via open tooling (e.g. HuggingFace spaces)</li>
-            </ul>
-            <div className="mt-4 flex flex-wrap gap-2 font-mono text-xs">
-              <a href={PARTNERS.quantumGlobalGroup.url} target="_blank" rel="noreferrer" className="qgg-link">
-                quantumglobalgroup.io ↗
-              </a>
-              <span>·</span>
-              <a href={PARTNERS.quantumGlobalGroup.huggingFaceUrl} target="_blank" rel="noreferrer" className="qgg-link">
-                HuggingFace ↗
-              </a>
-              <span>·</span>
-              <a href={PARTNERS.quantumGlobalGroup.githubUrl} target="_blank" rel="noreferrer" className="qgg-link">
-                GitHub ↗
-              </a>
-            </div>
-          </div>
-        </section>
+        <QggPanel title="Sources and credit">
+          <p className="text-sm leading-relaxed text-qgg-muted">
+            This is a Quantum Global Group educational interface. IBM is cited as a source for the software
+            and cloud platform used in the Lab — not as a partner on this page.
+          </p>
+          <ul className="mt-4 space-y-3 text-sm">
+            {SOURCES.map((source) => (
+              <li key={source.name} className="border-b border-qgg pb-3 last:border-0">
+                <a href={source.url} target="_blank" rel="noreferrer" className="qgg-link font-semibold">
+                  {source.name} ↗
+                </a>
+                <p className="mt-1 text-qgg-muted">{source.credit}</p>
+              </li>
+            ))}
+          </ul>
+        </QggPanel>
 
         <section>
           <h3 className="qgg-section-title text-lg">Industry playbook → student lab</h3>
@@ -171,34 +122,18 @@ export function WorkforcePage() {
           </div>
         </section>
 
-        <QggPanel num="04" title="IBM-HBCU goals → dashboard features">
-          <div className="overflow-x-auto">
-            <table className="qgg-table min-w-[720px]">
-              <thead>
-                <tr>
-                  <th>Center goal</th>
-                  <th>IBM provides</th>
-                  <th>This dashboard</th>
-                </tr>
-              </thead>
-              <tbody>
-                {IBM_HBCU_ALIGNMENT.map((row) => (
-                  <tr key={row.centerGoal}>
-                    <td className="font-medium">{row.centerGoal}</td>
-                    <td className="text-qgg-muted">{row.ibmProvides}</td>
-                    <td>{row.dashboardDelivers}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-xs text-qgg-muted">
-            Member institutions: {HBCU_MEMBERS.slice(0, 4).join(', ')}, … and {HBCU_MEMBERS.length - 4} more (
-            <a href={PARTNERS.ibmHbcu.url} target="_blank" rel="noreferrer" className="qgg-link">
-              full list
-            </a>
-            )
-          </p>
+        <QggPanel num="04" title="Where to click">
+          <ul className="space-y-3 text-sm text-qgg-muted">
+            <li>
+              <Link to="/lab" className="qgg-link font-semibold">Lab</Link> — connect IBM Quantum if you have credentials, run a small QAOA warmup, then solve downloaded QOBLIB QUBOs.
+            </li>
+            <li>
+              <Link to="/portfolio" className="qgg-link font-semibold">Portfolio</Link> — official families, current best-known values, and historical paper tables.
+            </li>
+            <li>
+              <Link to="/present" className="qgg-link font-semibold">Present</Link> — fullscreen slides. Speaker notes are coaching for you; hide them with N when an audience is watching.
+            </li>
+          </ul>
         </QggPanel>
 
         <section>
@@ -239,9 +174,9 @@ export function WorkforcePage() {
           </ul>
         </QggPanel>
 
-        <QggPanel dark title="For your IBM presentation">
+        <QggPanel dark title="How to use this lab">
           <ul className="space-y-2">
-            {IBM_PITCH_POINTS.map((point) => (
+            {HOW_TO_USE.map((point) => (
               <li key={point} className="flex gap-2 text-sm">
                 <span className="text-qgg-accent">✓</span>
                 {point}
@@ -249,10 +184,10 @@ export function WorkforcePage() {
             ))}
           </ul>
           <p className="mt-3 text-xs text-[#888] no-print">
-            Handout: Click “HANDOUT PDF” — in the print dialog choose Save as PDF.
+            Handout: click “HANDOUT PDF”, then choose Save as PDF in the print dialog.
           </p>
           <p className="mt-2 text-xs text-[#888]">
-            Live demo: /workforce → /lab → /portfolio → /present. Repo:{' '}
+            Suggested path: Lab → Portfolio → Present. Repo:{' '}
             <a href="https://github.com/QuantumKev/qoblib-dashboard" target="_blank" rel="noreferrer" className="text-qgg-accent underline">
               QuantumKev/qoblib-dashboard
             </a>

@@ -30,12 +30,12 @@ const GRID_SECTIONS = [
   },
   {
     num: '03',
-    title: 'SERVICES',
+    title: 'WORKFORCE LAB',
     dark: false,
     to: '/workforce',
-    body: 'Workforce development aligned with IBM-HBCU Quantum Center and industry delivery playbooks.',
-    items: ['Strategy', 'Execution', 'Capability'],
-    cta: 'WORKFORCE PROGRAM ↗',
+    body: 'Teaching map and one-page handout. The Lab is where you run experiments — this page explains the path.',
+    items: ['Open Lab', 'Cohort outline', 'Handout PDF'],
+    cta: 'OPEN WORKFORCE MAP ↗',
   },
   {
     num: '04',
@@ -44,7 +44,7 @@ const GRID_SECTIONS = [
     to: '/workforce',
     body: 'Define → fit check → pilot → benchmark → report → enable team.',
     items: ['01 Define outcome', '02 Fit check', '03 Pilot design', '04 Build & benchmark', '05 Report', '06 Enable'],
-    cta: 'SEE PROCESS ↗',
+    cta: 'SEE THE PLAYBOOK ↗',
   },
   {
     num: '05',
@@ -171,7 +171,7 @@ export function OverviewPage() {
       </section>
 
       <section className="border-t border-qgg bg-qgg-accent px-4 py-3 text-center font-mono text-[10px] uppercase tracking-widest lg:text-xs">
-        Question everything. Compute beyond. · IBM-HBCU Quantum Center · {PAPER.arxiv}
+        Question everything. Compute beyond. · Sources: IBM Quantum / Qiskit · QOBLIB · {PAPER.arxiv}
       </section>
     </div>
   )

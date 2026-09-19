@@ -1,14 +1,12 @@
-/** Workforce development content — IBM HBCU Quantum Center + Quantum Global Group alignment */
+/** Workforce lab content — Quantum Global Group teaching interface */
 
 export const PARTNERS = {
-  ibmHbcu: {
-    name: 'IBM-HBCU Quantum Center',
-    url: 'https://www.ibm.com/quantum/blog/ibm-hbcu-quantum-center',
-    educatorsUrl: 'https://quantum.cloud.ibm.com/programs/educators',
+  ibmQuantum: {
+    name: 'IBM Quantum',
+    url: 'https://www.ibm.com/quantum',
+    qiskitUrl: 'https://www.ibm.com/quantum/qiskit',
     learningUrl: 'https://learning.quantum.ibm.com/',
-    qiskitUrl: 'https://qiskit.org/',
-    tagline: 'Cloud access, Qiskit education, and research pathways for 13 HBCUs',
-    memberCount: 13,
+    tagline: 'Cited source for Qiskit and the IBM Quantum Platform used in the Lab',
   },
   quantumGlobalGroup: {
     name: 'Quantum Global Group',
@@ -21,20 +19,27 @@ export const PARTNERS = {
   },
 }
 
-export const HBCU_MEMBERS = [
-  'Albany State University',
-  'Clark Atlanta University',
-  'Coppin State University',
-  'Hampton University',
-  'Howard University',
-  'Morehouse College',
-  'Morgan State University',
-  'North Carolina A&T State University',
-  'Southern University',
-  'Texas Southern University',
-  'University of the Virgin Islands',
-  'Virginia Union University',
-  'Xavier University of Louisiana',
+export const SOURCES = [
+  {
+    name: 'IBM Quantum',
+    url: 'https://www.ibm.com/quantum',
+    credit: 'Source for Qiskit and the IBM Quantum Platform used when the Lab runs hardware or simulator jobs.',
+  },
+  {
+    name: 'Qiskit',
+    url: 'https://www.ibm.com/quantum/qiskit',
+    credit: 'Open-source SDK used by the optional local Lab API.',
+  },
+  {
+    name: 'QOBLIB (ZIB-AOPT)',
+    url: 'https://github.com/ZIB-AOPT/QOBLIB',
+    credit: 'Official Intractable Decathlon library. Portfolio problem #06 is the focus of this dashboard.',
+  },
+  {
+    name: 'arXiv:2504.03832',
+    url: 'https://arxiv.org/abs/2504.03832',
+    credit: 'Quantum Optimization Benchmarking Library — The Intractable Decathlon (paper). Table 6 is a historical snapshot.',
+  },
 ]
 
 export type PlaybookStep = {
@@ -59,7 +64,7 @@ export const INDUSTRY_PLAYBOOK: PlaybookStep[] = [
     visual: 'Problem statement cards · Table 5 instance sizes · λ risk parameter',
     studentAction: 'Read the one-minute QOBLIB story; pick a portfolio instance and λ to study.',
     explainIt:
-      '“We are not guessing — we use the same published benchmark IBM collaborators helped define (arXiv:2504.03832).”',
+      '“We are not guessing — we use the same published QOBLIB benchmark (arXiv:2504.03832).”',
   },
   {
     step: 2,
@@ -111,45 +116,10 @@ export const INDUSTRY_PLAYBOOK: PlaybookStep[] = [
     industry: 'Workforce tracks, tooling, and knowledge transfer so the organization can repeat the process.',
     dashboard: 'Beginner guide + this workforce hub + open GitHub repo for colleges to fork and extend.',
     route: '/learn',
-    visual: 'Concept glossary · playbook checklist · HBCU pathway',
+    visual: 'Concept glossary · playbook checklist · open GitHub repo',
     studentAction: 'Teach a peer using /learn; mentor another cohort through the same lab checklist.',
     explainIt:
       '“Capability building is the product — the dashboard is the reusable lab manual.”',
-  },
-]
-
-export type HbcuAlignmentRow = {
-  centerGoal: string
-  ibmProvides: string
-  dashboardDelivers: string
-}
-
-/** IBM-HBCU Quantum Center goals → this dashboard */
-export const IBM_HBCU_ALIGNMENT: HbcuAlignmentRow[] = [
-  {
-    centerGoal: 'Cloud access to IBM quantum computers',
-    ibmProvides: 'Qiskit Runtime + IBM Quantum Platform instances',
-    dashboardDelivers: 'Lab section 1–2: token + CRN connect, simulator → real backend job submission',
-  },
-  {
-    centerGoal: 'Qiskit education & open science',
-    ibmProvides: 'Qiskit framework, IBM Quantum Learning, Educators Program',
-    dashboardDelivers: 'Open-source FastAPI + Qiskit backend; links to learning.quantum.ibm.com in every module',
-  },
-  {
-    centerGoal: 'Undergraduate & graduate research opportunities',
-    ibmProvides: 'Funding, mentorship, research advisory board',
-    dashboardDelivers: 'QOBLIB portfolio #06 deep dive — same problem class cited in quantum finance literature',
-  },
-  {
-    centerGoal: 'Diverse quantum-ready workforce',
-    ibmProvides: '13 HBCU network, community & belonging focus',
-    dashboardDelivers: 'Zero-cost local lab; students explain results with visuals even without owning HPC clusters',
-  },
-  {
-    centerGoal: 'Connect talent to the quantum research community',
-    ibmProvides: 'Internships, fellowships, showcase platform',
-    dashboardDelivers: 'Standard QOBLIB submission IDs — students speak the language of published benchmarks',
   },
 ]
 
@@ -200,7 +170,7 @@ export const STUDENT_MODULES: StudentModule[] = [
     week: 'Week 5',
     title: 'Present to stakeholders',
     route: '/present',
-    deliverable: '5-minute IBM-style briefing using built-in slides + live demo',
+    deliverable: '5-minute briefing using built-in slides + live demo',
     skills: ['Executive communication', 'Demo discipline', 'Workforce portfolio piece'],
   },
 ]
@@ -228,10 +198,10 @@ export const ENTERPRISE_VS_STUDENT = [
   },
 ]
 
-export const IBM_PITCH_POINTS = [
-  'Built on the same IBM Quantum Platform + Qiskit Runtime stack the HBCU Center provides to member schools.',
-  'Turns QOBLIB portfolio #06 — a problem IBM co-authored — into a hands-on workforce lab with visuals students can defend.',
-  'Mirrors Quantum Global Group’s industry playbook: define → fit check → pilot → benchmark → report → enable.',
-  'Free to fork for any college cohort; runs locally so HBCU students aren’t blocked by HPC queue times for the classical side.',
-  'Presentation mode included for demo days, advisory boards, and IBM partner reviews.',
+export const HOW_TO_USE = [
+  'Open Lab from the top nav when you want to run something. This Workforce page is the map, not the workbench.',
+  'IBM Quantum and Qiskit are cited sources for the optional hardware/simulator path.',
+  'QOBLIB portfolio #06 is the official benchmark problem. Verify with the official checker — a low score is not enough.',
+  'Presentation mode has speaker notes for you. Hide them with N when people are watching.',
+  'The handout PDF is the one-page leave-behind. Save it from the print dialog.',
 ]

@@ -2,11 +2,11 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { QggLogo } from '../QggLogo'
 
 const NAV = [
-  { num: '01', label: 'PLAYGROUND', to: '/lab' },
+  { num: '01', label: 'LAB', to: '/lab' },
   { num: '02', label: 'PROJECTS', to: '/decathlon' },
-  { num: '03', label: 'SERVICES', to: '/workforce' },
-  { num: '04', label: 'PROCESS', to: '/workforce' },
-  { num: '05', label: 'LEARN', to: '/learn' },
+  { num: '03', label: 'PORTFOLIO', to: '/portfolio' },
+  { num: '04', label: 'LEARN', to: '/learn' },
+  { num: '05', label: 'WORKFORCE', to: '/workforce' },
   { num: '06', label: 'PRESENT', to: '/present' },
 ] as const
 
@@ -60,12 +60,12 @@ export function AppShell() {
       <footer className="qgg-footer no-print border-t border-qgg bg-qgg-paper px-4 py-6 lg:px-6">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-end justify-between gap-4 text-xs">
           <div>
-            <p className="font-semibold uppercase tracking-wide">Quantum Global Group × QOBLIB Workforce Lab</p>
-            <p className="mt-1 text-qgg-muted">IBM-HBCU Quantum Center aligned · arXiv:2504.03832</p>
+            <p className="font-semibold uppercase tracking-wide">Quantum Global Group · QOBLIB Workforce Lab</p>
+            <p className="mt-1 text-qgg-muted">Sources: IBM Quantum / Qiskit · ZIB-AOPT QOBLIB · arXiv:2504.03832</p>
           </div>
           <div className="flex flex-wrap gap-4 font-mono text-[10px] uppercase">
-            <a href="https://www.ibm.com/quantum/blog/ibm-hbcu-quantum-center" target="_blank" rel="noreferrer" className="qgg-link">
-              IBM HBCU ↗
+            <a href="https://www.ibm.com/quantum" target="_blank" rel="noreferrer" className="qgg-link">
+              IBM Quantum ↗
             </a>
             <a href="https://github.com/QuantumKev/qoblib-dashboard" target="_blank" rel="noreferrer" className="qgg-link">
               GitHub ↗

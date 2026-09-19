@@ -1,9 +1,8 @@
 import {
-  HBCU_MEMBERS,
-  IBM_HBCU_ALIGNMENT,
-  IBM_PITCH_POINTS,
+  HOW_TO_USE,
   INDUSTRY_PLAYBOOK,
   PARTNERS,
+  SOURCES,
   STUDENT_MODULES,
 } from '../data/workforceData'
 
@@ -32,7 +31,7 @@ export function WorkforceHandoutPrint() {
           </div>
           <div className="text-right text-[8pt]">
             <p className="font-bold text-[#052FAD]">IBM Quantum</p>
-            <p className="text-[7pt] text-gray-600">HBCU Quantum Center aligned</p>
+            <p className="text-[7pt] text-gray-600">Cited source · Qiskit · IBM Quantum Platform</p>
             <p className="mt-2 font-bold text-[#5B21B6]">Quantum Global Group</p>
             <p className="text-[7pt] text-gray-600">Workforce &amp; delivery playbook</p>
           </div>
@@ -40,7 +39,7 @@ export function WorkforceHandoutPrint() {
 
         <p className="mt-3 text-[8pt] italic text-gray-700">
           Students duplicate the same define → fit check → pilot → benchmark → report → enable workflow that industry
-          teams use — with visuals they can present to IBM, faculty, and employers. {today}
+          teams use — with visuals they can present to faculty, employers, and partners. {today}
         </p>
 
         {/* Six steps condensed */}
@@ -72,20 +71,16 @@ export function WorkforceHandoutPrint() {
           {/* IBM alignment */}
           <div>
             <h2 className="text-[10pt] font-bold uppercase tracking-wide text-gray-800">
-              IBM-HBCU Quantum Center alignment
+              Sources and credit
             </h2>
             <ul className="mt-2 space-y-1.5 text-[7.5pt]">
-              {IBM_HBCU_ALIGNMENT.slice(0, 4).map((row) => (
-                <li key={row.centerGoal}>
-                  <span className="font-semibold">{row.centerGoal}:</span>{' '}
-                  <span className="text-gray-700">{row.dashboardDelivers}</span>
+              {SOURCES.map((source) => (
+                <li key={source.name}>
+                  <span className="font-semibold">{source.name}:</span>{' '}
+                  <span className="text-gray-700">{source.credit}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-[7pt] text-gray-500">
-              {PARTNERS.ibmHbcu.memberCount} member HBCUs incl. Howard, Morgan State, NC A&amp;T, Xavier LA ·{' '}
-              {PARTNERS.ibmHbcu.url}
-            </p>
           </div>
 
           {/* 5-week curriculum */}
@@ -103,19 +98,19 @@ export function WorkforceHandoutPrint() {
 
         {/* Live demo + pitch */}
         <div className="mt-4 rounded border border-gray-300 bg-gray-50 p-3">
-          <h2 className="text-[10pt] font-bold text-gray-800">10-minute IBM demo path</h2>
+          <h2 className="text-[10pt] font-bold text-gray-800">10-minute demo path</h2>
           <p className="mt-1 text-[8pt]">
-            <strong>1.</strong> {site}/workforce · <strong>2.</strong> /lab (IBM token + CRN, qubit sweep, λ sweep) ·{' '}
-            <strong>3.</strong> /portfolio (a010 → a050) · <strong>4.</strong> /present slides 8–11
+            <strong>1.</strong> {site}/lab · <strong>2.</strong> /portfolio (small family → a010 → a050) ·{' '}
+            <strong>3.</strong> /present · optional IBM Quantum token + CRN only if you are running hardware
           </p>
           <p className="mt-2 text-[7.5pt] text-gray-700">
-            Local API: <code className="text-[7pt]">npm run server</code> + <code className="text-[7pt]">npm run dev</code>{' '}
-            · Educators: {PARTNERS.ibmHbcu.educatorsUrl}
+            Local API (optional): <code className="text-[7pt]">npm run server</code> +{' '}
+            <code className="text-[7pt]">npm run dev</code>
           </p>
         </div>
 
         <ul className="mt-3 columns-2 gap-4 text-[7pt] text-gray-700">
-          {IBM_PITCH_POINTS.map((p) => (
+          {HOW_TO_USE.map((p) => (
             <li key={p} className="mb-1 break-inside-avoid">✓ {p}</li>
           ))}
         </ul>
@@ -127,8 +122,8 @@ export function WorkforceHandoutPrint() {
             <p className="mt-0.5">GitHub: github.com/QuantumKev/qoblib-dashboard</p>
           </div>
           <div className="text-right">
-            <p className="font-semibold text-[#052FAD]">IBM-HBCU Quantum Center</p>
-            <p className="max-w-[2.5in] text-[6.5pt]">{HBCU_MEMBERS.slice(0, 6).join(' · ')}…</p>
+            <p className="font-semibold text-[#052FAD]">IBM Quantum — cited source</p>
+            <p className="max-w-[2.5in] text-[6.5pt]">ibm.com/quantum · Qiskit · IBM Quantum Platform</p>
           </div>
         </footer>
       </div>

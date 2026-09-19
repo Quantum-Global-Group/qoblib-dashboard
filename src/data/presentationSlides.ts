@@ -14,12 +14,12 @@ export const SLIDES: Slide[] = [
     showPartners: true,
     bullets: [
       'Open benchmark dashboard — arXiv:2504.03832 “Intractable Decathlon”',
-      'IBM-HBCU Quantum Center stack: Qiskit Runtime + IBM Quantum Platform',
+      'Lab stack cites IBM Quantum / Qiskit as a source, not a partner mark',
       'Quantum Global Group playbook: define → pilot → benchmark → enable',
       'Students duplicate industry workflow with visuals they can defend',
     ],
     notes:
-      'Title slide: name both partners. IBM = access + Qiskit + HBCU mission. QGG = workforce playbook + portfolio optimization research. This is capability building on IBM infrastructure.',
+      'This is a QGG lab. Credit IBM Quantum and Qiskit as sources for the optional hardware path. QOBLIB is the official benchmark library.',
     accent: 'IBM Quantum × Quantum Global Group × QOBLIB',
   },
   {
@@ -112,19 +112,6 @@ export const SLIDES: Slide[] = [
     accent: 'quantumglobalgroup.io · workforce development',
   },
   {
-    id: 'workforce-hbcu',
-    title: 'IBM-HBCU Quantum Center alignment',
-    bullets: [
-      '13 HBCUs: cloud access, Qiskit education, research opportunities',
-      'This lab uses IBM Quantum Platform + Qiskit Runtime (same stack)',
-      'Students connect token + CRN → simulator → real QPU — no mock APIs',
-      'QOBLIB verification = research-community language (submission IDs, gap %)',
-    ],
-    notes:
-      'Reference the 2020 center announcement. Tie to Educators Program and learning.quantum.ibm.com. Diversity & belonging: students showcase results visually even without HPC.',
-    accent: 'Built for cohorts IBM already invests in',
-  },
-  {
     id: 'lab-demo',
     title: 'Live lab demo (5 minutes)',
     bullets: [
@@ -151,15 +138,15 @@ export const SLIDES: Slide[] = [
   },
   {
     id: 'close',
-    title: 'Takeaways for IBM & partners',
+    title: 'Takeaways',
     bullets: [
-      'QOBLIB + this dashboard = reproducible workforce lab on IBM stack',
-      'IBM-HBCU Center goals met: access, Qiskit, research, diverse talent pipeline',
-      'Quantum Global Group playbook operationalized for colleges & cohorts',
-      'Fork: github.com/QuantumKev/qoblib-dashboard · Live: /workforce · Demo: /lab',
+      'QOBLIB + this dashboard = a reusable workforce lab you can fork',
+      'Cite IBM Quantum / Qiskit when you use the hardware or simulator path',
+      'Quantum Global Group playbook: define → fit check → pilot → benchmark → report',
+      'Live: /lab · Map: /workforce · Deck: /present',
       'Questions?',
     ],
     notes:
-      'Close with offer: pilot cohort at an HBCU partner or IBM Educators site. Kevin Robinson / Quantum Global Group workforce track.',
+      'Close with the Lab path, not a partnership claim. Kevin Robinson / Quantum Global Group workforce track.',
   },
 ]
